@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Liquid Metal · Shader Gallery</title><meta name="description" content="A rippling chrome surface with environment reflections and dispersion.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="detail">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html" aria-current="page">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main class="layout">
+  <section class="stage-wrap">
+    <canvas id="stage" aria-label="Liquid Metal shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    
+  </section>
+  <aside class="panel">
+    <p class="eyebrow">Shape Effects</p>
+    <h1>Liquid Metal</h1>
+    <p class="lede">A rippling chrome surface with environment reflections and dispersion.</p>
+    <form id="controls" class="controls" onsubmit="return false"></form>
+    <button id="reset" class="btn ghost" type="button">Reset</button>
+    <details class="code" open>
+      <summary>Code</summary>
+      <pre id="code" aria-label="Generated code"></pre>
+      <button id="copy" class="btn" type="button">Copy code</button>
+    </details>
+    <div class="pager">
+      <a href="flowing-gradient.html">← Flowing Gradient</a>
+      <a href="nebula.html">Nebula →</a>
+    </div>
+  </aside>
+</main>
+<script>window.__PAGE__={"slug":"liquid-metal","title":"Liquid Metal","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#08080c","colorB":"#14141c","angle":90}},{"type":"LiquidMetal","id":"fx","props":{"scale":1.6}}],"controls":[{"id":"fx","prop":"lightColor","kind":"color","label":"Light Color","value":"#eef0f6","component":"LiquidMetal"},{"id":"fx","prop":"darkColor","kind":"color","label":"Dark Color","value":"#141414","component":"LiquidMetal"},{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1.6,"min":0.1,"max":3,"step":0.01,"component":"LiquidMetal"},{"id":"fx","prop":"turbulence","kind":"range","label":"Turbulence","value":1,"min":0,"max":1.5,"step":0.01,"component":"LiquidMetal"},{"id":"fx","prop":"ripple","kind":"range","label":"Ripple Scale","value":4,"min":0.5,"max":8,"step":0.01,"component":"LiquidMetal"},{"id":"fx","prop":"warp","kind":"range","label":"Swirl","value":1.5,"min":0,"max":1.5,"step":0.01,"component":"LiquidMetal"},{"id":"fx","prop":"dispersion","kind":"range","label":"Dispersion","value":0.25,"min":0,"max":1,"step":0.01,"component":"LiquidMetal"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":0.5,"min":0,"max":4,"step":0.01,"component":"LiquidMetal"}]}</script>
+<script src="app.js"></script>
+</body></html>

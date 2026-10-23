@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reaction Diffusion · Shader Gallery</title><meta name="description" content="A living Turing-pattern simulation. Move the cursor over it to paint.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="detail">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html" aria-current="page">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main class="layout">
+  <section class="stage-wrap">
+    <canvas id="stage" aria-label="Reaction Diffusion shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <p class="hint">Move your cursor over the canvas to paint.</p>
+  </section>
+  <aside class="panel">
+    <p class="eyebrow">Interactive</p>
+    <h1>Reaction Diffusion</h1>
+    <p class="lede">A living Turing-pattern simulation. Move the cursor over it to paint.</p>
+    <form id="controls" class="controls" onsubmit="return false"></form>
+    <button id="reset" class="btn ghost" type="button">Reset</button>
+    <details class="code" open>
+      <summary>Code</summary>
+      <pre id="code" aria-label="Generated code"></pre>
+      <button id="copy" class="btn" type="button">Copy code</button>
+    </details>
+    <div class="pager">
+      <a href="dither.html">← Dither</a>
+      <a href="cursor-trail.html">Cursor Trail →</a>
+    </div>
+  </aside>
+</main>
+<script>window.__PAGE__={"slug":"reaction-diffusion","title":"Reaction Diffusion","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#04141f","colorB":"#062a3d","angle":90}},{"type":"ReactionDiffusion","id":"fx","props":{"preset":"coral"}}],"controls":[{"id":"fx","prop":"preset","kind":"select","label":"Pattern","value":"coral","options":[{"label":"Coral","value":"coral"},{"label":"Mitosis","value":"mitosis"},{"label":"Spots","value":"spots"},{"label":"Maze","value":"maze"},{"label":"Worms","value":"worms"},{"label":"Fingerprints","value":"fingerprints"},{"label":"Holes","value":"holes"},{"label":"Solitons","value":"solitons"},{"label":"Bubbles","value":"bubbles"},{"label":"Waves","value":"waves"},{"label":"Flowers","value":"flowers"},{"label":"Custom","value":"custom"}],"component":"ReactionDiffusion"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":6,"min":1,"max":16,"step":1,"component":"ReactionDiffusion"},{"id":"fx","prop":"brushSize","kind":"range","label":"Brush Size","value":0.04,"min":0.01,"max":0.3,"step":0.01,"component":"ReactionDiffusion"},{"id":"fx","prop":"brushStrength","kind":"range","label":"Brush Strength","value":0.6,"min":0,"max":1,"step":0.01,"component":"ReactionDiffusion"},{"id":"fx","prop":"colorC","kind":"color","label":"Wall Color","value":"#38bdf8","component":"ReactionDiffusion"},{"id":"fx","prop":"colorB","kind":"color","label":"Cell Color","value":"#e2f5ff","component":"ReactionDiffusion"},{"id":"fx","prop":"contrast","kind":"range","label":"Contrast","value":0.5,"min":0,"max":1,"step":0.01,"component":"ReactionDiffusion"},{"id":"fx","prop":"relief","kind":"range","label":"Relief","value":0.4,"min":0,"max":1,"step":0.01,"component":"ReactionDiffusion"}]}</script>
+<script src="app.js"></script>
+</body></html>

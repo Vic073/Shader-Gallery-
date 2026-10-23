@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shader Gallery</title><meta name="description" content="A gallery of WebGPU shader effects built with the open-source shaders package.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="home">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <canvas id="stage" aria-hidden="true"></canvas>
+    <div class="hero-copy">
+      <p class="eyebrow">13 live WebGPU effects</p>
+      <h1>Shader Gallery</h1>
+      <p class="lede">One page per effect. Tweak every parameter in real time and copy the code. Powered by the open-source <a href="https://github.com/shader-effects-inc/shaders">shaders</a> package.</p>
+    </div>
+    <div class="fallback" id="fallback" hidden></div>
+  </section>
+  <section class="grid" aria-label="All shaders">
+    
+    <a class="card" href="aurora.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #05060f, transparent 60%), radial-gradient(100% 100% at 90% 90%, #0b0f24, transparent 55%), #a533f8"></span>
+      <span class="cat">Textures</span>
+      <strong>Aurora</strong>
+      <span class="blurb">Shimmering northern-light curtains with adjustable rays, waviness and palette.</span>
+    </a>
+    <a class="card" href="plasma.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #ff3d81, transparent 60%), radial-gradient(100% 100% at 90% 90%, #1b0b52, transparent 55%), #0b0b14"></span>
+      <span class="cat">Textures</span>
+      <strong>Plasma</strong>
+      <span class="blurb">Classic warped plasma, retuned for the GPU. Drag density and warp to taste.</span>
+    </a>
+    <a class="card" href="flowing-gradient.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #0a0015, transparent 60%), radial-gradient(100% 100% at 90% 90%, #6b17e6, transparent 55%), #ff4d6a"></span>
+      <span class="cat">Textures</span>
+      <strong>Flowing Gradient</strong>
+      <span class="blurb">Four colors blended in OKLCH that drift and fold into each other.</span>
+    </a>
+    <a class="card" href="liquid-metal.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #08080c, transparent 60%), radial-gradient(100% 100% at 90% 90%, #14141c, transparent 55%), #eef0f6"></span>
+      <span class="cat">Shape Effects</span>
+      <strong>Liquid Metal</strong>
+      <span class="blurb">A rippling chrome surface with environment reflections and dispersion.</span>
+    </a>
+    <a class="card" href="nebula.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #02030a, transparent 60%), radial-gradient(100% 100% at 90% 90%, #05061a, transparent 55%), #ffd9b0"></span>
+      <span class="cat">Shape Effects</span>
+      <strong>Nebula</strong>
+      <span class="blurb">Volumetric gas, dust and twinkling stars wrapped around a glowing core.</span>
+    </a>
+    <a class="card" href="kaleidoscope.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #0b132b, transparent 60%), radial-gradient(100% 100% at 90% 90%, #1c7ed6, transparent 55%), #f06595"></span>
+      <span class="cat">Distortions</span>
+      <strong>Kaleidoscope</strong>
+      <span class="blurb">A distortion that wraps any layer beneath it. Here it folds a flowing gradient.</span>
+    </a>
+    <a class="card" href="glitch.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #00e0ff, transparent 60%), radial-gradient(100% 100% at 90% 90%, #1a0033, transparent 55%), #0b0b14"></span>
+      <span class="cat">Stylize</span>
+      <strong>Glitch</strong>
+      <span class="blurb">RGB splits, block tearing and scanlines applied to a live plasma feed.</span>
+    </a>
+    <a class="card" href="halftone.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #ffffff, transparent 60%), radial-gradient(100% 100% at 90% 90%, #00ffff, transparent 55%), #ff00ff"></span>
+      <span class="cat">Stylize</span>
+      <strong>Halftone</strong>
+      <span class="blurb">Print-style dots, in simple or CMYK mode, over a drifting gradient.</span>
+    </a>
+    <a class="card" href="dither.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #0a0a0a, transparent 60%), radial-gradient(100% 100% at 90% 90%, #7CFFB2, transparent 55%), #ffffff"></span>
+      <span class="cat">Stylize</span>
+      <strong>Dither</strong>
+      <span class="blurb">Seven dithering algorithms, from Bayer matrices to Floyd–Steinberg.</span>
+    </a>
+    <a class="card" href="reaction-diffusion.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #04141f, transparent 60%), radial-gradient(100% 100% at 90% 90%, #062a3d, transparent 55%), #38bdf8"></span>
+      <span class="cat">Interactive</span>
+      <strong>Reaction Diffusion</strong>
+      <span class="blurb">A living Turing-pattern simulation. Move the cursor over it to paint.</span>
+    </a>
+    <a class="card" href="cursor-trail.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #07070d, transparent 60%), radial-gradient(100% 100% at 90% 90%, #120a24, transparent 55%), #00aaff"></span>
+      <span class="cat">Interactive</span>
+      <strong>Cursor Trail</strong>
+      <span class="blurb">A gradient ribbon that follows your pointer, layered over a dark backdrop.</span>
+    </a>
+    <a class="card" href="voronoi.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #4361ee, transparent 60%), radial-gradient(100% 100% at 90% 90%, #f72585, transparent 55%), #0b0b1a"></span>
+      <span class="cat">Textures</span>
+      <strong>Voronoi</strong>
+      <span class="blurb">Animated cellular patterns with soft or sharp borders.</span>
+    </a>
+    <a class="card" href="godrays.html">
+      <span class="thumb" style="background:radial-gradient(120% 120% at 20% 10%, #050814, transparent 60%), radial-gradient(100% 100% at 90% 90%, #0d1330, transparent 55%), #4283fb"></span>
+      <span class="cat">Textures</span>
+      <strong>Godrays</strong>
+      <span class="blurb">Volumetric light shafts streaming in from a point you control.</span>
+    </a>
+  </section>
+  <footer class="foot">Effects by <a href="https://shaders.com">Shaders</a> (MIT). Needs a WebGPU-capable browser (recent Chrome, Edge, Safari or Firefox).</footer>
+</main>
+<script>window.__PAGE__={"home":true,"components":[{"type":"FlowingGradient","id":"fx","props":{"colorA":"#05060f","colorB":"#3a0ca3","colorC":"#f72585","colorD":"#4cc9f0","speed":0.7,"distortion":0.7}}]}</script>
+<script src="app.js"></script>
+</body></html>

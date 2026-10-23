@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cursor Trail · Shader Gallery</title><meta name="description" content="A gradient ribbon that follows your pointer, layered over a dark backdrop.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="detail">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html" aria-current="page">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main class="layout">
+  <section class="stage-wrap">
+    <canvas id="stage" aria-label="Cursor Trail shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <p class="hint">Move your cursor over the canvas.</p>
+  </section>
+  <aside class="panel">
+    <p class="eyebrow">Interactive</p>
+    <h1>Cursor Trail</h1>
+    <p class="lede">A gradient ribbon that follows your pointer, layered over a dark backdrop.</p>
+    <form id="controls" class="controls" onsubmit="return false"></form>
+    <button id="reset" class="btn ghost" type="button">Reset</button>
+    <details class="code" open>
+      <summary>Code</summary>
+      <pre id="code" aria-label="Generated code"></pre>
+      <button id="copy" class="btn" type="button">Copy code</button>
+    </details>
+    <div class="pager">
+      <a href="reaction-diffusion.html">← Reaction Diffusion</a>
+      <a href="voronoi.html">Voronoi →</a>
+    </div>
+  </aside>
+</main>
+<script>window.__PAGE__={"slug":"cursor-trail","title":"Cursor Trail","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#07070d","colorB":"#120a24","angle":90}},{"type":"CursorTrail","id":"fx","props":{"radius":0.6,"length":0.8}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Start Color","value":"#00aaff","component":"CursorTrail"},{"id":"fx","prop":"colorB","kind":"color","label":"End Color","value":"#ff00aa","component":"CursorTrail"},{"id":"fx","prop":"radius","kind":"range","label":"Radius","value":0.6,"min":0.5,"max":2,"step":0.1,"component":"CursorTrail"},{"id":"fx","prop":"length","kind":"range","label":"Trail Length","value":0.8,"min":0.1,"max":2,"step":0.1,"component":"CursorTrail"},{"id":"fx","prop":"shrink","kind":"range","label":"Shrink Amount","value":1,"min":0,"max":1,"step":0.1,"component":"CursorTrail"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0,"min":0,"max":1,"step":0.01,"component":"CursorTrail"}]}</script>
+<script src="app.js"></script>
+</body></html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kaleidoscope · Shader Gallery</title><meta name="description" content="A distortion that wraps any layer beneath it. Here it folds a flowing gradient.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="detail">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html" aria-current="page">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main class="layout">
+  <section class="stage-wrap">
+    <canvas id="stage" aria-label="Kaleidoscope shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    
+  </section>
+  <aside class="panel">
+    <p class="eyebrow">Distortions</p>
+    <h1>Kaleidoscope</h1>
+    <p class="lede">A distortion that wraps any layer beneath it. Here it folds a flowing gradient.</p>
+    <form id="controls" class="controls" onsubmit="return false"></form>
+    <button id="reset" class="btn ghost" type="button">Reset</button>
+    <details class="code" open>
+      <summary>Code</summary>
+      <pre id="code" aria-label="Generated code"></pre>
+      <button id="copy" class="btn" type="button">Copy code</button>
+    </details>
+    <div class="pager">
+      <a href="nebula.html">← Nebula</a>
+      <a href="glitch.html">Glitch →</a>
+    </div>
+  </aside>
+</main>
+<script>window.__PAGE__={"slug":"kaleidoscope","title":"Kaleidoscope","components":[{"type":"Kaleidoscope","id":"fx","props":{"segments":8},"children":[{"type":"FlowingGradient","id":"src","props":{"colorA":"#0b132b","colorB":"#1c7ed6","colorC":"#f06595","colorD":"#ffd43b","speed":1.4}}]}],"controls":[{"id":"fx","prop":"segments","kind":"range","label":"Segments","value":8,"min":2,"max":24,"step":1,"component":"Kaleidoscope"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":0,"max":360,"step":1,"component":"Kaleidoscope"},{"id":"fx","prop":"edges","kind":"select","label":"Edges","value":"mirror","options":[{"label":"Stretch","value":"stretch"},{"label":"Transparent","value":"transparent"},{"label":"Mirror","value":"mirror"},{"label":"Wrap","value":"wrap"}],"component":"Kaleidoscope"},{"id":"src","prop":"distortion","kind":"range","label":"Distortion","value":0.5,"min":0,"max":2,"step":0.1,"component":"FlowingGradient"},{"id":"src","prop":"speed","kind":"range","label":"Speed","value":1.4,"min":0,"max":10,"step":0.1,"component":"FlowingGradient"}]}</script>
+<script src="app.js"></script>
+</body></html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Halftone · Shader Gallery</title><meta name="description" content="Print-style dots, in simple or CMYK mode, over a drifting gradient.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="detail">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html" aria-current="page">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main class="layout">
+  <section class="stage-wrap">
+    <canvas id="stage" aria-label="Halftone shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    
+  </section>
+  <aside class="panel">
+    <p class="eyebrow">Stylize</p>
+    <h1>Halftone</h1>
+    <p class="lede">Print-style dots, in simple or CMYK mode, over a drifting gradient.</p>
+    <form id="controls" class="controls" onsubmit="return false"></form>
+    <button id="reset" class="btn ghost" type="button">Reset</button>
+    <details class="code" open>
+      <summary>Code</summary>
+      <pre id="code" aria-label="Generated code"></pre>
+      <button id="copy" class="btn" type="button">Copy code</button>
+    </details>
+    <div class="pager">
+      <a href="glitch.html">← Glitch</a>
+      <a href="dither.html">Dither →</a>
+    </div>
+  </aside>
+</main>
+<script>window.__PAGE__={"slug":"halftone","title":"Halftone","components":[{"type":"Halftone","id":"fx","props":{"style":"cmyk","frequency":70},"children":[{"type":"FlowingGradient","id":"src","props":{"colorA":"#ff2d55","colorB":"#ffd60a","colorC":"#30d5c8","colorD":"#5e5ce6","speed":0.8}}]}],"controls":[{"id":"fx","prop":"style","kind":"select","label":"Style","value":"cmyk","options":[{"label":"Simple","value":"classic"},{"label":"CMYK Print","value":"cmyk"}],"component":"Halftone"},{"id":"fx","prop":"frequency","kind":"range","label":"Frequency","value":70,"min":10,"max":300,"step":1,"component":"Halftone"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":45,"min":0,"max":360,"step":1,"component":"Halftone"},{"id":"fx","prop":"misprint","kind":"range","label":"Misprint","value":0,"min":0,"max":0.01,"step":0.0005,"component":"Halftone"},{"id":"fx","prop":"misprintAngle","kind":"range","label":"Misprint Angle","value":0,"min":0,"max":360,"step":1,"component":"Halftone"},{"id":"fx","prop":"paperColor","kind":"color","label":"Paper","value":"#ffffff","component":"Halftone"}]}</script>
+<script src="app.js"></script>
+</body></html>

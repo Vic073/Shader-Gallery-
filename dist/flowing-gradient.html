@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flowing Gradient · Shader Gallery</title><meta name="description" content="Four colors blended in OKLCH that drift and fold into each other.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="detail">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html" aria-current="page">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main class="layout">
+  <section class="stage-wrap">
+    <canvas id="stage" aria-label="Flowing Gradient shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    
+  </section>
+  <aside class="panel">
+    <p class="eyebrow">Textures</p>
+    <h1>Flowing Gradient</h1>
+    <p class="lede">Four colors blended in OKLCH that drift and fold into each other.</p>
+    <form id="controls" class="controls" onsubmit="return false"></form>
+    <button id="reset" class="btn ghost" type="button">Reset</button>
+    <details class="code" open>
+      <summary>Code</summary>
+      <pre id="code" aria-label="Generated code"></pre>
+      <button id="copy" class="btn" type="button">Copy code</button>
+    </details>
+    <div class="pager">
+      <a href="plasma.html">← Plasma</a>
+      <a href="liquid-metal.html">Liquid Metal →</a>
+    </div>
+  </aside>
+</main>
+<script>window.__PAGE__={"slug":"flowing-gradient","title":"Flowing Gradient","components":[{"type":"FlowingGradient","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#0a0015","component":"FlowingGradient"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#6b17e6","component":"FlowingGradient"},{"id":"fx","prop":"colorC","kind":"color","label":"Color C","value":"#ff4d6a","component":"FlowingGradient"},{"id":"fx","prop":"colorD","kind":"color","label":"Color D","value":"#ff6b35","component":"FlowingGradient"},{"id":"fx","prop":"distortion","kind":"range","label":"Distortion","value":0.5,"min":0,"max":2,"step":0.1,"component":"FlowingGradient"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":1,"min":0,"max":10,"step":0.1,"component":"FlowingGradient"},{"id":"fx","prop":"seed","kind":"range","label":"Seed","value":0,"min":0,"max":100,"step":1,"component":"FlowingGradient"}]}</script>
+<script src="app.js"></script>
+</body></html>

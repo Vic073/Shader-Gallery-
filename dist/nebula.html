@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nebula · Shader Gallery</title><meta name="description" content="Volumetric gas, dust and twinkling stars wrapped around a glowing core.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="detail">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html" aria-current="page">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main class="layout">
+  <section class="stage-wrap">
+    <canvas id="stage" aria-label="Nebula shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    
+  </section>
+  <aside class="panel">
+    <p class="eyebrow">Shape Effects</p>
+    <h1>Nebula</h1>
+    <p class="lede">Volumetric gas, dust and twinkling stars wrapped around a glowing core.</p>
+    <form id="controls" class="controls" onsubmit="return false"></form>
+    <button id="reset" class="btn ghost" type="button">Reset</button>
+    <details class="code" open>
+      <summary>Code</summary>
+      <pre id="code" aria-label="Generated code"></pre>
+      <button id="copy" class="btn" type="button">Copy code</button>
+    </details>
+    <div class="pager">
+      <a href="liquid-metal.html">← Liquid Metal</a>
+      <a href="kaleidoscope.html">Kaleidoscope →</a>
+    </div>
+  </aside>
+</main>
+<script>window.__PAGE__={"slug":"nebula","title":"Nebula","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#02030a","colorB":"#05061a","angle":90}},{"type":"Nebula","id":"fx","props":{"scale":1.8}}],"controls":[{"id":"fx","prop":"coreColor","kind":"color","label":"Core Color","value":"#ffd9b0","component":"Nebula"},{"id":"fx","prop":"gasColor","kind":"color","label":"Gas Color","value":"#ff5e7a","component":"Nebula"},{"id":"fx","prop":"veilColor","kind":"color","label":"Veil Color","value":"#3a5bdb","component":"Nebula"},{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1.8,"min":0.1,"max":3,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"density","kind":"range","label":"Density","value":1,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"dust","kind":"range","label":"Dust","value":0.55,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"stars","kind":"range","label":"Stars","value":0.07,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":0.3,"min":0,"max":4,"step":0.01,"component":"Nebula"}]}</script>
+<script src="app.js"></script>
+</body></html>

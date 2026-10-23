@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plasma · Shader Gallery</title><meta name="description" content="Classic warped plasma, retuned for the GPU. Drag density and warp to taste.">
+<link rel="stylesheet" href="style.css"></head>
+<body class="detail">
+
+<header class="nav">
+  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
+  <nav class="links" aria-label="Shaders">
+    <a href="aurora.html">Aurora</a><a href="plasma.html" aria-current="page">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html">Godrays</a>
+  </nav>
+</header>
+<main class="layout">
+  <section class="stage-wrap">
+    <canvas id="stage" aria-label="Plasma shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    
+  </section>
+  <aside class="panel">
+    <p class="eyebrow">Textures</p>
+    <h1>Plasma</h1>
+    <p class="lede">Classic warped plasma, retuned for the GPU. Drag density and warp to taste.</p>
+    <form id="controls" class="controls" onsubmit="return false"></form>
+    <button id="reset" class="btn ghost" type="button">Reset</button>
+    <details class="code" open>
+      <summary>Code</summary>
+      <pre id="code" aria-label="Generated code"></pre>
+      <button id="copy" class="btn" type="button">Copy code</button>
+    </details>
+    <div class="pager">
+      <a href="aurora.html">← Aurora</a>
+      <a href="flowing-gradient.html">Flowing Gradient →</a>
+    </div>
+  </aside>
+</main>
+<script>window.__PAGE__={"slug":"plasma","title":"Plasma","components":[{"type":"Plasma","id":"fx","props":{"colorA":"#ff3d81","colorB":"#1b0b52"}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#ff3d81","component":"Plasma"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#1b0b52","component":"Plasma"},{"id":"fx","prop":"density","kind":"range","label":"Density","value":2,"min":0,"max":4,"step":0.1,"component":"Plasma"},{"id":"fx","prop":"warp","kind":"range","label":"Warp","value":0.4,"min":0,"max":1,"step":0.01,"component":"Plasma"},{"id":"fx","prop":"intensity","kind":"range","label":"Intensity","value":1.5,"min":0.1,"max":3,"step":0.1,"component":"Plasma"},{"id":"fx","prop":"contrast","kind":"range","label":"Contrast","value":1,"min":0,"max":3,"step":0.1,"component":"Plasma"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":2,"min":0,"max":5,"step":0.1,"component":"Plasma"}]}</script>
+<script src="app.js"></script>
+</body></html>
