@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Neon · Shader Gallery</title><meta name="description" content="Photorealistic neon tube / 3D pipe effect driven by a custom shape">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Neon shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Shape%20Effects">Shape Effects</a><span aria-hidden="true">/</span><span aria-current="page">Neon</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Shape Effects)</b> N°069</p>
+      <h1 class="display reveal" style="--i:1">Neon</h1>
+      <p class="lede reveal" style="--i:2">Photorealistic neon tube / 3D pipe effect driven by a custom shape</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="nebula.html" title="Nebula" aria-label="Previous: Nebula">← Prev</a>
+      <a class="btn" href="obsidian.html" title="Obsidian" aria-label="Next: Obsidian">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"neon","title":"Neon","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"Neon","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1,"min":0.1,"max":3,"step":0.01,"component":"Neon"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"Neon"},{"id":"fx","prop":"color","kind":"color","label":"Tube Color","value":"#00ddff","component":"Neon"},{"id":"fx","prop":"secondaryColor","kind":"color","label":"Secondary Color","value":"#ff00aa","component":"Neon"},{"id":"fx","prop":"secondaryBlend","kind":"range","label":"Blend","value":0.5,"min":0,"max":1,"step":0.01,"component":"Neon"},{"id":"fx","prop":"glowColor","kind":"color","label":"Glow Color","value":"#00ddff","component":"Neon"},{"id":"fx","prop":"tubeThickness","kind":"range","label":"Tube Thickness","value":0.2,"min":0,"max":1,"step":0.01,"component":"Neon"},{"id":"fx","prop":"intensity","kind":"range","label":"Intensity","value":1.5,"min":0.5,"max":4,"step":0.01,"component":"Neon"},{"id":"fx","prop":"hotCoreIntensity","kind":"range","label":"Hot Core","value":0.6,"min":0,"max":1,"step":0.01,"component":"Neon"},{"id":"fx","prop":"glowIntensity","kind":"range","label":"Glow Intensity","value":0.6,"min":0,"max":2,"step":0.01,"component":"Neon"}]}</script>
+<script src="app.js"></script>
+</body></html>

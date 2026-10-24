@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Mosh · Shader Gallery</title><meta name="description" content="Corrupted-codec motion smearing — macroblocks lock in place and drag their pixels across the frame in liquid trails, each recovering on its own clock, like a video stream that lost its keyframes">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Data Mosh shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Stylize">Stylize</a><span aria-hidden="true">/</span><span aria-current="page">Data Mosh</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Stylize)</b> N°120</p>
+      <h1 class="display reveal" style="--i:1">Data Mosh</h1>
+      <p class="lede reveal" style="--i:2">Corrupted-codec motion smearing — macroblocks lock in place and drag their pixels across the frame in liquid trails, each recovering on its own clock, like a video stream that lost its keyframes</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="crt-screen.html" title="CRT Screen" aria-label="Previous: CRT Screen">← Prev</a>
+      <a class="btn" href="dither.html" title="Dither" aria-label="Next: Dither">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">7 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"data-mosh","title":"Data Mosh","components":[{"type":"DataMosh","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"intensity","kind":"range","label":"Intensity","value":0.7,"min":0,"max":1,"step":0.01,"component":"DataMosh"},{"id":"fx","prop":"blockSize","kind":"range","label":"Block Size","value":48,"min":30,"max":150,"step":1,"component":"DataMosh"},{"id":"fx","prop":"drift","kind":"range","label":"Drift","value":0.35,"min":0,"max":1,"step":0.01,"component":"DataMosh"},{"id":"fx","prop":"churn","kind":"range","label":"Churn","value":0.4,"min":0,"max":1,"step":0.01,"component":"DataMosh"},{"id":"fx","prop":"blend","kind":"range","label":"Blend","value":1,"min":0,"max":1,"step":0.01,"component":"DataMosh"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":1,"min":0,"max":4,"step":0.1,"component":"DataMosh"},{"id":"fx","prop":"seed","kind":"range","label":"Seed","value":0,"min":0,"max":100,"step":1,"component":"DataMosh"}]}</script>
+<script src="app.js"></script>
+</body></html>

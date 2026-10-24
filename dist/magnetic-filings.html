@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Magnetic Filings · Shader Gallery</title><meta name="description" content="Thousands of tiny iron filings scattered on paper that swing to align with a magnetic field around the cursor, tracing out the field lines — a dipole whose axis follows the cursor's motion draws the classic two-lobed swirl, and every sweep of the magnet sends a glowing wave of filings flipping and settling">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Magnetic Filings shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Interactive">Interactive</a><span aria-hidden="true">/</span><span aria-current="page">Magnetic Filings</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Interactive)</b> N°085</p>
+      <h1 class="display reveal" style="--i:1">Magnetic Filings</h1>
+      <p class="lede reveal" style="--i:2">Thousands of tiny iron filings scattered on paper that swing to align with a magnetic field around the cursor, tracing out the field lines — a dipole whose axis follows the cursor's motion draws the classic two-lobed swirl, and every sweep of the magnet sends a glowing wave of filings flipping and settling</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="liquify.html" title="Liquify" aria-label="Previous: Liquify">← Prev</a>
+      <a class="btn" href="particle-flow.html" title="Particle Flow" aria-label="Next: Particle Flow">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"magnetic-filings","title":"Magnetic Filings","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"MagneticFilings","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Rest Color","value":"#be1ef9","component":"MagneticFilings"},{"id":"fx","prop":"colorB","kind":"color","label":"Excited Color","value":"#6326ff","component":"MagneticFilings"},{"id":"fx","prop":"shape","kind":"select","label":"Shape","value":"dot","options":[{"label":"Arrow","value":"arrow"},{"label":"Streak","value":"streak"},{"label":"Dot","value":"dot"},{"label":"Square","value":"square"},{"label":"Glow","value":"glow"}],"component":"MagneticFilings"},{"id":"fx","prop":"count","kind":"range","label":"Count","value":8000,"min":500,"max":12000,"step":500,"component":"MagneticFilings"},{"id":"fx","prop":"size","kind":"range","label":"Size","value":1,"min":0.5,"max":3,"step":0.05,"component":"MagneticFilings"},{"id":"fx","prop":"restOrientation","kind":"select","label":"Rest Orientation","value":"random","options":[{"label":"Random","value":"random"},{"label":"Horizontal","value":"horizontal"},{"label":"Vertical","value":"vertical"}],"component":"MagneticFilings"},{"id":"fx","prop":"fieldType","kind":"select","label":"Field Type","value":"dipole","options":[{"label":"Dipole","value":"dipole"},{"label":"Radial","value":"radial"}],"component":"MagneticFilings"},{"id":"fx","prop":"strength","kind":"range","label":"Strength","value":1.7,"min":0,"max":3,"step":0.01,"component":"MagneticFilings"},{"id":"fx","prop":"reach","kind":"range","label":"Reach","value":0.6,"min":0.1,"max":1,"step":0.01,"component":"MagneticFilings"},{"id":"fx","prop":"response","kind":"range","label":"Response","value":0.5,"min":0,"max":1,"step":0.01,"component":"MagneticFilings"}]}</script>
+<script src="app.js"></script>
+</body></html>

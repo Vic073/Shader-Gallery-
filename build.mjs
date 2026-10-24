@@ -1,7 +1,10 @@
 import { build } from 'esbuild'
 import { mkdir, writeFile, rm, cp } from 'node:fs/promises'
 import { getShaderByName } from 'shaders/registry'
-import { pages } from './pages.mjs'
+import { pages as manual } from './pages.mjs'
+import { generatePages } from './gen.mjs'
+const { pages, skipped } = generatePages(manual)
+console.log(`Generated ${pages.length} pages (${manual.length} hand-tuned); skipped: ${skipped.join('; ')}`)
 
 const OUT = new URL('./dist/', import.meta.url).pathname
 await rm(OUT, { recursive: true, force: true })
@@ -9,7 +12,7 @@ await mkdir(OUT, { recursive: true })
 
 /* ---------- validate presets + resolve control UI from package metadata ---------- */
 const errors = []
-const hexRe = /^#[0-9a-f]{3,8}$/i
+const hexRe = /^#([0-9a-f]{3}|[0-9a-f]{6})$/i
 
 function walk(list, fn) { for (const c of list) { fn(c); if (c.children) walk(c.children, fn) } }
 
@@ -18,7 +21,11 @@ for (const p of pages) {
   walk(p.components, (c) => {
     const meta = getShaderByName(c.type)
     if (!meta) { errors.push(`${p.slug}: unknown component ${c.type}`); return }
+    if (byId[c.id]) errors.push(`${p.slug}: duplicate id ${c.id}`)
     byId[c.id] = { c, meta }
+    const kids = (c.children || []).length
+    if (meta.requiresChild && kids === 0) errors.push(`${p.slug}: ${c.type} requires a child`)
+    if (meta.requiresChild === false && kids > 0) errors.push(`${p.slug}: ${c.type} takes no children`)
     for (const k of Object.keys(c.props || {})) {
       if (!meta.propsMetadata?.[k]) errors.push(`${p.slug}: ${c.type} has no prop "${k}"`)
     }
@@ -36,9 +43,9 @@ for (const p of pages) {
     const current = hit.c.props?.[prop] ?? pm.default
     let kind = null
     if (types.includes('color')) kind = hexRe.test(current) ? 'color' : null
-    else if (types.includes('select')) kind = 'select'
-    else if (types.includes('range')) kind = 'range'
-    else if (types.includes('toggle') || types.includes('boolean')) kind = 'toggle'
+    else if (types.includes('select')) kind = ui.options?.length ? 'select' : null
+    else if (types.includes('range')) kind = ui.min !== undefined && ui.max !== undefined ? 'range' : null
+    else if (types.includes('checkbox')) kind = typeof current === 'boolean' ? 'toggle' : null
     if (!kind) { console.warn(`skip ${ref} (ui ${JSON.stringify(ui.type)}, value ${JSON.stringify(current)})`); continue }
     p.resolved.push({
       id, prop, kind, label: ui.label || prop, value: current,
@@ -56,7 +63,13 @@ for (const p of pages) {
       if ([].concat(pm.ui?.type).includes('color') && hexRe.test(v) && v.length <= 7) colors.push(v)
     }
   })
-  p.accent = [...new Set(colors)].slice(0, 4)
+  const lum = (h) => { h = h.length === 4 ? '#' + [...h.slice(1)].map((x) => x + x).join('') : h; const n = parseInt(h.slice(1), 16); return (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255 }
+  const vivid = [...new Set(colors)].filter((c) => lum(c) > 0.12 && lum(c) < 0.9)
+  if (vivid.length < 2) {
+    let h = 0; for (const ch of p.slug) h = (h * 31 + ch.charCodeAt(0)) % 360
+    vivid.push(`hsl(${h} 80% 58%)`, `hsl(${(h + 70) % 360} 85% 55%)`)
+  }
+  p.accent = vivid.slice(0, 3)
 }
 
 if (errors.length) { console.error('Validation failed:\n' + errors.join('\n')); process.exit(1) }
@@ -69,90 +82,130 @@ await build({
   outfile: OUT + 'app.js', logLevel: 'warning',
 })
 await cp('src/style.css', OUT + 'style.css')
+await cp('src/fonts', OUT + 'fonts', { recursive: true })
 
 /* ---------- HTML ---------- */
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+const pad3 = (n) => String(n).padStart(3, '0')
 const grad = (p) => {
-  const a = p.accent.length >= 2 ? p.accent : ['#4361ee', '#f72585']
-  return `radial-gradient(120% 120% at 20% 10%, ${a[0]}, transparent 60%), radial-gradient(100% 100% at 90% 90%, ${a[1]}, transparent 55%), ${a[2] || '#0b0b14'}`
+  const a = p.accent
+  return `radial-gradient(120% 120% at 20% 10%, ${a[0]}, transparent 60%), radial-gradient(100% 100% at 90% 90%, ${a[1]}, transparent 55%), ${a[2] || '#0b0b12'}`
 }
-
-const nav = (active) => `
-<header class="nav">
-  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
-  <nav class="links" aria-label="Shaders">
-    ${pages.map((p) => `<a href="${p.slug}.html"${p.slug === active ? ' aria-current="page"' : ''}>${esc(p.title)}</a>`).join('')}
-  </nav>
-</header>`
+const GITHUB = 'https://github.com/shader-effects-inc/shaders'
 
 const head = (title, desc) => `<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(desc)}">
-<link rel="stylesheet" href="style.css"></head>`
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>`
 
-const idx = `${head('Shader Gallery', 'A gallery of WebGPU shader effects built with the open-source shaders package.')}
+const cats = [...new Set(pages.map((p) => p.category))]
+
+const idx = `${head('Shader Gallery', `${pages.length} live WebGPU shader effects you can tweak in real time, built with the open-source shaders package.`)}
 <body class="home">
-${nav('')}
-<main>
-  <section class="hero">
-    <canvas id="stage" aria-hidden="true"></canvas>
-    <div class="hero-copy">
-      <p class="eyebrow">${pages.length} live WebGPU effects</p>
-      <h1>Shader Gallery</h1>
-      <p class="lede">One page per effect. Tweak every parameter in real time and copy the code. Powered by the open-source <a href="https://github.com/shader-effects-inc/shaders">shaders</a> package.</p>
+<section class="hero" id="hero">
+  <canvas id="stage" aria-hidden="true"></canvas>
+  <div class="fallback" id="fallback" hidden></div>
+  <div class="veil" aria-hidden="true"></div>
+  <header class="nav liquidGL">
+    <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+    <a class="btn" href="#effects">Effects</a>
+    <a class="btn" href="${GITHUB}">GitHub ↗</a>
+  </header>
+  <div class="hero-inner">
+    <h1 class="display reveal" style="--i:0"><span>Shader</span><span>Gallery</span></h1>
+    <div class="hero-side">
+      <p class="eyebrow reveal" style="--i:2"><b>(Index)</b> N°01</p>
+      <p class="lede reveal" style="--i:3">${pages.length} real-time WebGPU effects. Open any one, drag the sliders, and copy the code. Powered by the open-source <a href="${GITHUB}">shaders</a> package.</p>
+      <div class="cta liquidGL reveal" style="--i:4"><a class="btn solid lg" href="#effects">Explore ${pages.length} effects ↓</a></div>
     </div>
-    <div class="fallback" id="fallback" hidden></div>
+  </div>
+</section>
+
+<main class="section" id="effects">
+  <div class="section-head">
+    <p class="eyebrow io"><b>(Effects)</b> N°02</p>
+    <h2 class="io" style="--d:60">Every effect, tuned live.</h2>
+  </div>
+  <section class="filters glass" id="search" aria-label="Filter effects">
+    <div class="row1">
+      <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search ${pages.length} effects" aria-label="Search effects" autocomplete="off"></label>
+      <p class="count" id="count" aria-live="polite"></p>
+    </div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category">
+      <button type="button" class="chip" data-cat="" aria-pressed="true">All<small>${pages.length}</small></button>
+      ${cats.map((c) => `<button type="button" class="chip" data-cat="${esc(c)}" aria-pressed="false">${esc(c)}<small>${pages.filter((p) => p.category === c).length}</small></button>`).join('')}
+    </div>
   </section>
-  <section class="grid" aria-label="All shaders">
-    ${pages.map((p) => `
-    <a class="card" href="${p.slug}.html">
-      <span class="thumb" style="background:${grad(p)}"></span>
+  <section class="grid" id="grid" aria-label="All effects">
+    ${pages.map((p, i) => `
+    <a class="card io" style="--d:${(i % 4) * 60}" href="${p.slug}.html" data-cat="${esc(p.category)}" data-text="${esc((p.title + ' ' + p.category + ' ' + p.blurb).toLowerCase())}">
+      <span class="thumb" style="background:${grad(p)}"><em>N°${pad3(i + 1)}</em><u aria-hidden="true">↗</u></span>
       <span class="cat">${esc(p.category)}</span>
       <strong>${esc(p.title)}</strong>
       <span class="blurb">${esc(p.blurb)}</span>
     </a>`).join('')}
+    <p class="empty" id="empty" hidden>No effects match that search.</p>
   </section>
-  <footer class="foot">Effects by <a href="https://shaders.com">Shaders</a> (MIT). Needs a WebGPU-capable browser (recent Chrome, Edge, Safari or Firefox).</footer>
 </main>
+<footer class="foot">
+  <span>Effects by <a href="https://shaders.com">Shaders</a> · MIT</span>
+  <span>Glass by <a href="https://liquidgl.naughtyduk.com">liquidGL</a> · MIT</span>
+  <span>Needs WebGPU: recent Chrome, Edge, Safari or Firefox</span>
+</footer>
 <script>window.__PAGE__=${JSON.stringify({
   home: true,
-  components: [{ type: 'FlowingGradient', id: 'fx', props: { colorA: '#05060f', colorB: '#3a0ca3', colorC: '#f72585', colorD: '#4cc9f0', speed: 0.7, distortion: 0.7 } }],
+  components: [{ type: 'FlowingGradient', id: 'fx', props: { colorA: '#05060f', colorB: '#2a1fd6', colorC: '#d6336c', colorD: '#f4c28a', speed: 0.6, distortion: 0.75 } }],
 })}</script>
 <script src="app.js"></script>
 </body></html>`
 await writeFile(OUT + 'index.html', idx)
 
-for (const p of pages) {
+for (const [i, p] of pages.entries()) {
   const data = { slug: p.slug, title: p.title, components: p.components, controls: p.resolved }
-  const i = pages.indexOf(p)
   const prev = pages[(i - 1 + pages.length) % pages.length], next = pages[(i + 1) % pages.length]
   const html = `${head(p.title + ' · Shader Gallery', p.blurb)}
 <body class="detail">
-${nav(p.slug)}
-<main class="layout">
-  <section class="stage-wrap">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
     <canvas id="stage" aria-label="${esc(p.title)} shader preview"></canvas>
     <div class="fallback" id="fallback" hidden></div>
-    ${p.hint ? `<p class="hint">${esc(p.hint)}</p>` : ''}
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#${encodeURIComponent(p.category)}">${esc(p.category)}</a><span aria-hidden="true">/</span><span aria-current="page">${esc(p.title)}</span></span>
+      <a class="btn" href="index.html#search">Browse ${pages.length}</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(${esc(p.category)})</b> N°${pad3(i + 1)}</p>
+      <h1 class="display reveal" style="--i:1">${esc(p.title)}</h1>
+      <p class="lede reveal" style="--i:2">${esc(p.blurb)}</p>
+      ${p.hint ? `<p class="hint reveal" style="--i:3">${esc(p.hint)}</p>` : ''}
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="${prev.slug}.html" title="${esc(prev.title)}" aria-label="Previous: ${esc(prev.title)}">← Prev</a>
+      <a class="btn" href="${next.slug}.html" title="${esc(next.title)}" aria-label="Next: ${esc(next.title)}">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
   </section>
-  <aside class="panel">
-    <p class="eyebrow">${esc(p.category)}</p>
-    <h1>${esc(p.title)}</h1>
-    <p class="lede">${esc(p.blurb)}</p>
-    <form id="controls" class="controls" onsubmit="return false"></form>
-    <button id="reset" class="btn ghost" type="button">Reset</button>
-    <details class="code" open>
-      <summary>Code</summary>
-      <pre id="code" aria-label="Generated code"></pre>
-      <button id="copy" class="btn" type="button">Copy code</button>
-    </details>
-    <div class="pager">
-      <a href="${prev.slug}.html">← ${esc(prev.title)}</a>
-      <a href="${next.slug}.html">${esc(next.title)} →</a>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">${p.resolved.length} params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false">${p.resolved.length ? '' : '<p class="nocontrols">This effect has no adjustable parameters. It applies as-is.</p>'}</form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
     </div>
   </aside>
-</main>
+</div>
 <script>window.__PAGE__=${JSON.stringify(data)}</script>
 <script src="app.js"></script>
 </body></html>`

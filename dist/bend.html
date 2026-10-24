@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bend · Shader Gallery</title><meta name="description" content="Bends the ends of the frame toward you like a curved display — content at the edges swells closer under real perspective, or curls away when the strength goes negative">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Bend shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Distortions">Distortions</a><span aria-hidden="true">/</span><span aria-current="page">Bend</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Distortions)</b> N°094</p>
+      <h1 class="display reveal" style="--i:1">Bend</h1>
+      <p class="lede reveal" style="--i:2">Bends the ends of the frame toward you like a curved display — content at the edges swells closer under real perspective, or curls away when the strength goes negative</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="bar-shift.html" title="Bar Shift" aria-label="Previous: Bar Shift">← Prev</a>
+      <a class="btn" href="bulge.html" title="Bulge" aria-label="Next: Bulge">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">4 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"bend","title":"Bend","components":[{"type":"Bend","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"strength","kind":"range","label":"Strength","value":0.5,"min":-1,"max":1,"step":0.01,"component":"Bend"},{"id":"fx","prop":"falloff","kind":"range","label":"Falloff","value":0,"min":0,"max":1,"step":0.01,"component":"Bend"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":0,"max":360,"step":1,"component":"Bend"},{"id":"fx","prop":"edges","kind":"select","label":"Edges","value":"transparent","options":[{"label":"Stretch","value":"stretch"},{"label":"Transparent","value":"transparent"},{"label":"Mirror","value":"mirror"},{"label":"Wrap","value":"wrap"}],"component":"Bend"}]}</script>
+<script src="app.js"></script>
+</body></html>

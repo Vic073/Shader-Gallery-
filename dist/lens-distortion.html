@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lens Distortion · Shader Gallery</title><meta name="description" content="Split content into shifting chromatic layers with barrel or pincushion lens warp. Powered by Paper Shaders.">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Lens Distortion shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Stylize">Stylize</a><span aria-hidden="true">/</span><span aria-current="page">Lens Distortion</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Stylize)</b> N°130</p>
+      <h1 class="display reveal" style="--i:1">Lens Distortion</h1>
+      <p class="lede reveal" style="--i:2">Split content into shifting chromatic layers with barrel or pincushion lens warp. Powered by Paper Shaders.</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="key-frames.html" title="Key Frames" aria-label="Previous: Key Frames">← Prev</a>
+      <a class="btn" href="lens-flare.html" title="Lens Flare" aria-label="Next: Lens Flare">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"lens-distortion","title":"Lens Distortion","components":[{"type":"LensDistortion","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"spread","kind":"range","label":"Spread","value":0.6,"min":0,"max":1,"step":0.01,"component":"LensDistortion"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":0,"max":360,"step":1,"component":"LensDistortion"},{"id":"fx","prop":"perspective","kind":"range","label":"Perspective","value":0.1,"min":0,"max":1,"step":0.01,"component":"LensDistortion"},{"id":"fx","prop":"bias","kind":"range","label":"Bias","value":1,"min":-1,"max":1,"step":0.01,"component":"LensDistortion"},{"id":"fx","prop":"count","kind":"range","label":"Count","value":35,"min":2,"max":50,"step":1,"component":"LensDistortion"},{"id":"fx","prop":"dispersion","kind":"range","label":"Dispersion","value":1,"min":0,"max":1,"step":0.01,"component":"LensDistortion"},{"id":"fx","prop":"dispersionShift","kind":"range","label":"Shift","value":0,"min":-1,"max":1,"step":0.01,"component":"LensDistortion"},{"id":"fx","prop":"dispersionColor","kind":"range","label":"Hue","value":0.6,"min":0,"max":1,"step":0.01,"component":"LensDistortion"},{"id":"fx","prop":"focusCenter","kind":"range","label":"Focus Center","value":0.8,"min":0,"max":1,"step":0.01,"component":"LensDistortion"},{"id":"fx","prop":"focusEdges","kind":"range","label":"Focus Edges","value":1,"min":0,"max":1,"step":0.01,"component":"LensDistortion"}]}</script>
+<script src="app.js"></script>
+</body></html>

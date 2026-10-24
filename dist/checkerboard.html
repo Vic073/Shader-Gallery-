@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkerboard · Shader Gallery</title><meta name="description" content="Classic checkerboard pattern with two alternating colors">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Checkerboard shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Checkerboard</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°007</p>
+      <h1 class="display reveal" style="--i:1">Checkerboard</h1>
+      <p class="lede reveal" style="--i:2">Classic checkerboard pattern with two alternating colors</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="brick-pattern.html" title="Brick Pattern" aria-label="Previous: Brick Pattern">← Prev</a>
+      <a class="btn" href="chevron.html" title="Chevron" aria-label="Next: Chevron">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">4 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"checkerboard","title":"Checkerboard","components":[{"type":"Checkerboard","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#cccccc","component":"Checkerboard"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#999999","component":"Checkerboard"},{"id":"fx","prop":"cells","kind":"range","label":"Cells","value":8,"min":1,"max":50,"step":1,"component":"Checkerboard"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0,"min":0,"max":1,"step":0.1,"component":"Checkerboard"}]}</script>
+<script src="app.js"></script>
+</body></html>

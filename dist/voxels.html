@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Voxels · Shader Gallery</title><meta name="description" content="Rebuild any shape out of voxels — a flat shape becomes chunky pixel art, a 3D shape a lit voxel model with smooth ambient occlusion, cast shadows, a key light you can orbit or drive, and per-cube color">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Voxels shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Shape%20Effects">Shape Effects</a><span aria-hidden="true">/</span><span aria-current="page">Voxels</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Shape Effects)</b> N°075</p>
+      <h1 class="display reveal" style="--i:1">Voxels</h1>
+      <p class="lede reveal" style="--i:2">Rebuild any shape out of voxels — a flat shape becomes chunky pixel art, a 3D shape a lit voxel model with smooth ambient occlusion, cast shadows, a key light you can orbit or drive, and per-cube color</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="thin-film.html" title="Thin Film" aria-label="Previous: Thin Film">← Prev</a>
+      <a class="btn" href="water.html" title="Water" aria-label="Next: Water">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"voxels","title":"Voxels","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"Voxels","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1,"min":0.1,"max":3,"step":0.01,"component":"Voxels"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"Voxels"},{"id":"fx","prop":"voxelSize","kind":"range","label":"Voxel Size","value":0.035,"min":0.006,"max":0.15,"step":0.001,"component":"Voxels"},{"id":"fx","prop":"voxelShape","kind":"select","label":"Voxel Shape","value":"cube","options":[{"label":"Cube","value":"cube"},{"label":"Rounded Cube","value":"rounded"},{"label":"Sphere","value":"sphere"}],"component":"Voxels"},{"id":"fx","prop":"voxelScale","kind":"range","label":"Voxel Fill","value":1,"min":0.3,"max":1,"step":0.01,"component":"Voxels"},{"id":"fx","prop":"fill","kind":"range","label":"Surface Bias","value":0,"min":-0.5,"max":0.5,"step":0.01,"component":"Voxels"},{"id":"fx","prop":"bevel","kind":"range","label":"Bevel","value":0.08,"min":0,"max":1,"step":0.01,"component":"Voxels"},{"id":"fx","prop":"depth","kind":"range","label":"Depth","value":0.12,"min":0.01,"max":0.6,"step":0.005,"component":"Voxels"},{"id":"fx","prop":"gridSpace","kind":"select","label":"Grid","value":"shape","options":[{"label":"Model","value":"shape"},{"label":"Screen","value":"view"}],"component":"Voxels"},{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#6ea8ff","component":"Voxels"}]}</script>
+<script src="app.js"></script>
+</body></html>

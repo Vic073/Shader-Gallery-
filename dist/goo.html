@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Goo · Shader Gallery</title><meta name="description" content="Photoreal wet liquid — animated 3D metaball blobs that merge and bulge to loosely form the shape, with sliding wet highlights, a clearcoat rim and a translucent body">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Goo shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Shape%20Effects">Shape Effects</a><span aria-hidden="true">/</span><span aria-current="page">Goo</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Shape Effects)</b> N°061</p>
+      <h1 class="display reveal" style="--i:1">Goo</h1>
+      <p class="lede reveal" style="--i:2">Photoreal wet liquid — animated 3D metaball blobs that merge and bulge to loosely form the shape, with sliding wet highlights, a clearcoat rim and a translucent body</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="glass.html" title="Glass" aria-label="Previous: Glass">← Prev</a>
+      <a class="btn" href="heatmap.html" title="Heatmap" aria-label="Next: Heatmap">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"goo","title":"Goo","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"Goo","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1,"min":0.1,"max":3,"step":0.01,"component":"Goo"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"Goo"},{"id":"fx","prop":"gooColor","kind":"color","label":"Goo Color","value":"#37c95a","component":"Goo"},{"id":"fx","prop":"translucency","kind":"range","label":"Translucency","value":0.6,"min":0,"max":1,"step":0.01,"component":"Goo"},{"id":"fx","prop":"absorb","kind":"range","label":"Absorption","value":2,"min":0,"max":6,"step":0.01,"component":"Goo"},{"id":"fx","prop":"containment","kind":"range","label":"Containment","value":0.9,"min":0,"max":1,"step":0.01,"component":"Goo"},{"id":"fx","prop":"edgeSoftness","kind":"range","label":"Edge Softness","value":0.06,"min":0,"max":0.3,"step":0.005,"component":"Goo"},{"id":"fx","prop":"blobScale","kind":"range","label":"Blob Size","value":0.3,"min":0.1,"max":1,"step":0.01,"component":"Goo"},{"id":"fx","prop":"spread","kind":"range","label":"Spread","value":1,"min":0,"max":2,"step":0.01,"component":"Goo"},{"id":"fx","prop":"merge","kind":"range","label":"Merge","value":0.6,"min":0,"max":1,"step":0.01,"component":"Goo"}]}</script>
+<script src="app.js"></script>
+</body></html>

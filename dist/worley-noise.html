@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Worley Noise · Shader Gallery</title><meta name="description" content="Cellular noise field — distance-based, with selectable feature combinations and fractal octaves">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Worley Noise shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Worley Noise</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°053</p>
+      <h1 class="display reveal" style="--i:1">Worley Noise</h1>
+      <p class="lede reveal" style="--i:2">Cellular noise field — distance-based, with selectable feature combinations and fractal octaves</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="weave.html" title="Weave" aria-label="Previous: Weave">← Prev</a>
+      <a class="btn" href="brushed-metal.html" title="Brushed Metal" aria-label="Next: Brushed Metal">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"worley-noise","title":"Worley Noise","components":[{"type":"WorleyNoise","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A (Low)","value":"#ffffff","component":"WorleyNoise"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B (High)","value":"#000000","component":"WorleyNoise"},{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":6,"min":1,"max":30,"step":0.5,"component":"WorleyNoise"},{"id":"fx","prop":"mode","kind":"select","label":"Mode","value":"f1","options":[{"label":"F1 (Cells)","value":"f1"},{"label":"F2 (Wider Cells)","value":"f2"},{"label":"F2 − F1 (Edges)","value":"f2MinusF1"},{"label":"F1 + F2","value":"f1PlusF2"},{"label":"F1 × F2","value":"f1TimesF2"}],"component":"WorleyNoise"},{"id":"fx","prop":"distance","kind":"select","label":"Distance","value":"euclidean","options":[{"label":"Euclidean","value":"euclidean"},{"label":"Manhattan","value":"manhattan"},{"label":"Chebyshev","value":"chebyshev"}],"component":"WorleyNoise"},{"id":"fx","prop":"octaves","kind":"range","label":"Octaves","value":1,"min":1,"max":4,"step":1,"component":"WorleyNoise"},{"id":"fx","prop":"jitter","kind":"range","label":"Jitter","value":1,"min":0,"max":1,"step":0.01,"component":"WorleyNoise"},{"id":"fx","prop":"contrast","kind":"range","label":"Contrast","value":1,"min":0.25,"max":4,"step":0.01,"component":"WorleyNoise"},{"id":"fx","prop":"balance","kind":"range","label":"Balance","value":0,"min":-1,"max":1,"step":0.01,"component":"WorleyNoise"},{"id":"fx","prop":"seed","kind":"range","label":"Seed","value":0,"min":0,"max":100,"step":1,"component":"WorleyNoise"}]}</script>
+<script src="app.js"></script>
+</body></html>

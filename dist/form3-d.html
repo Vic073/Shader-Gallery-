@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Form3 D · Shader Gallery</title><meta name="description" content="Wraps child content onto a 3D raymarched shape with lighting.">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Form3 D shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Distortions">Distortions</a><span aria-hidden="true">/</span><span aria-current="page">Form3 D</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Distortions)</b> N°101</p>
+      <h1 class="display reveal" style="--i:1">Form3 D</h1>
+      <p class="lede reveal" style="--i:2">Wraps child content onto a 3D raymarched shape with lighting.</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="fluted-glass.html" title="Fluted Glass" aria-label="Previous: Fluted Glass">← Prev</a>
+      <a class="btn" href="glass-tiles.html" title="Glass Tiles" aria-label="Next: Glass Tiles">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">5 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"form3-d","title":"Form3 D","components":[{"type":"Form3D","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"zoom","kind":"range","label":"Zoom","value":50,"min":10,"max":200,"step":1,"component":"Form3D"},{"id":"fx","prop":"glossiness","kind":"range","label":"Glossiness","value":50,"min":0,"max":200,"step":1,"component":"Form3D"},{"id":"fx","prop":"lighting","kind":"range","label":"Lighting","value":50,"min":0,"max":200,"step":1,"component":"Form3D"},{"id":"fx","prop":"uvMode","kind":"select","label":"UV Edges","value":"stretch","options":[{"label":"Stretch","value":"stretch"},{"label":"Mirror","value":"mirror"},{"label":"Wrap","value":"wrap"}],"component":"Form3D"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":1,"min":-10,"max":10,"step":0.1,"component":"Form3D"}]}</script>
+<script src="app.js"></script>
+</body></html>

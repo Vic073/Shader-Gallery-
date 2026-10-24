@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Floating Particles · Shader Gallery</title><meta name="description" content="Drifting, twinkling motes — thousands of real simulated particles floating in a shared heading with per-particle wander and variance, and a cursor that stirs the field with a gust that settles back into the drift">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Floating Particles shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Floating Particles</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°016</p>
+      <h1 class="display reveal" style="--i:1">Floating Particles</h1>
+      <p class="lede reveal" style="--i:2">Drifting, twinkling motes — thousands of real simulated particles floating in a shared heading with per-particle wander and variance, and a cursor that stirs the field with a gust that settles back into the drift</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="falling-lines.html" title="Falling Lines" aria-label="Previous: Falling Lines">← Prev</a>
+      <a class="btn" href="flowing-gradient.html" title="Flowing Gradient" aria-label="Next: Flowing Gradient">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"floating-particles","title":"Floating Particles","components":[{"type":"FloatingParticles","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"particleColor","kind":"color","label":"Particle Color","value":"#ffffff","component":"FloatingParticles"},{"id":"fx","prop":"shape","kind":"select","label":"Shape","value":"dot","options":[{"label":"Dot","value":"dot"},{"label":"Square","value":"square"},{"label":"Glow","value":"glow"}],"component":"FloatingParticles"},{"id":"fx","prop":"count","kind":"range","label":"Count","value":1200,"min":100,"max":8192,"step":100,"component":"FloatingParticles"},{"id":"fx","prop":"particleSize","kind":"range","label":"Particle Size","value":1.2,"min":0.3,"max":4,"step":0.05,"component":"FloatingParticles"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0.1,"min":0,"max":1,"step":0.01,"component":"FloatingParticles"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":0.25,"min":0,"max":1,"step":0.01,"component":"FloatingParticles"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":90,"min":0,"max":360,"step":1,"component":"FloatingParticles"},{"id":"fx","prop":"speedVariance","kind":"range","label":"Speed Variance","value":0.3,"min":0,"max":1,"step":0.05,"component":"FloatingParticles"},{"id":"fx","prop":"angleVariance","kind":"range","label":"Angle Variance","value":30,"min":0,"max":180,"step":1,"component":"FloatingParticles"},{"id":"fx","prop":"randomness","kind":"range","label":"Randomness","value":0.25,"min":0,"max":1,"step":0.05,"component":"FloatingParticles"}]}</script>
+<script src="app.js"></script>
+</body></html>

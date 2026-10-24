@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spherize · Shader Gallery</title><meta name="description" content="Map content onto a 3D sphere surface with depth distortion">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Spherize shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Distortions">Distortions</a><span aria-hidden="true">/</span><span aria-current="page">Spherize</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Distortions)</b> N°109</p>
+      <h1 class="display reveal" style="--i:1">Spherize</h1>
+      <p class="lede reveal" style="--i:2">Map content onto a 3D sphere surface with depth distortion</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="repeater.html" title="Repeater" aria-label="Previous: Repeater">← Prev</a>
+      <a class="btn" href="stretch.html" title="Stretch" aria-label="Next: Stretch">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">5 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"spherize","title":"Spherize","components":[{"type":"Spherize","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"radius","kind":"range","label":"Radius","value":1,"min":0.1,"max":3,"step":0.1,"component":"Spherize"},{"id":"fx","prop":"depth","kind":"range","label":"Depth","value":1,"min":0,"max":3,"step":0.1,"component":"Spherize"},{"id":"fx","prop":"lightIntensity","kind":"range","label":"Light Intensity","value":0.5,"min":0,"max":1,"step":0.1,"component":"Spherize"},{"id":"fx","prop":"lightSoftness","kind":"range","label":"Light Softness","value":0.5,"min":0,"max":1,"step":0.1,"component":"Spherize"},{"id":"fx","prop":"lightColor","kind":"color","label":"Light Color","value":"#ffffff","component":"Spherize"}]}</script>
+<script src="app.js"></script>
+</body></html>

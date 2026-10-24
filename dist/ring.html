@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ring · Shader Gallery</title><meta name="description" content="Annular ring (donut) with adjustable radius and band thickness">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Ring shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Shapes">Shapes</a><span aria-hidden="true">/</span><span aria-current="page">Ring</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Shapes)</b> N°191</p>
+      <h1 class="display reveal" style="--i:1">Ring</h1>
+      <p class="lede reveal" style="--i:2">Annular ring (donut) with adjustable radius and band thickness</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="polygon.html" title="Polygon" aria-label="Previous: Polygon">← Prev</a>
+      <a class="btn" href="rounded-rect.html" title="Rounded Rect" aria-label="Next: Rounded Rect">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">7 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"ring","title":"Ring","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"Ring","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"color","kind":"color","label":"Color","value":"#ffffff","component":"Ring"},{"id":"fx","prop":"radius","kind":"range","label":"Radius","value":0.3,"min":0,"max":1,"step":0.01,"component":"Ring"},{"id":"fx","prop":"thickness","kind":"range","label":"Thickness","value":0.07,"min":0.005,"max":0.3,"step":0.005,"component":"Ring"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0,"min":0,"max":0.1,"step":0.001,"component":"Ring"},{"id":"fx","prop":"strokeThickness","kind":"range","label":"Stroke Thickness","value":0,"min":0,"max":0.1,"step":0.005,"component":"Ring"},{"id":"fx","prop":"strokeColor","kind":"color","label":"Stroke Color","value":"#000000","component":"Ring"},{"id":"fx","prop":"strokePosition","kind":"select","label":"Stroke Position","value":"center","options":[{"label":"Outside","value":"outside"},{"label":"Center","value":"center"},{"label":"Inside","value":"inside"}],"component":"Ring"}]}</script>
+<script src="app.js"></script>
+</body></html>

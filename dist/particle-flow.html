@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Particle Flow · Shader Gallery</title><meta name="description" content="Thousands of drifting dust particles carried by a real incompressible fluid field the cursor stirs — drag to plow a wake and the particles ride the eddies and vortices it leaves behind, while a gentle ambient breeze keeps the whole scene breathing on its own">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Particle Flow shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Interactive">Interactive</a><span aria-hidden="true">/</span><span aria-current="page">Particle Flow</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Interactive)</b> N°086</p>
+      <h1 class="display reveal" style="--i:1">Particle Flow</h1>
+      <p class="lede reveal" style="--i:2">Thousands of drifting dust particles carried by a real incompressible fluid field the cursor stirs — drag to plow a wake and the particles ride the eddies and vortices it leaves behind, while a gentle ambient breeze keeps the whole scene breathing on its own</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="magnetic-filings.html" title="Magnetic Filings" aria-label="Previous: Magnetic Filings">← Prev</a>
+      <a class="btn" href="pixel-sort.html" title="Pixel Sort" aria-label="Next: Pixel Sort">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"particle-flow","title":"Particle Flow","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"ParticleFlow","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Rest Color","value":"#8ec5ff","component":"ParticleFlow"},{"id":"fx","prop":"colorB","kind":"color","label":"Excited Color","value":"#ffd98e","component":"ParticleFlow"},{"id":"fx","prop":"shape","kind":"select","label":"Shape","value":"streak","options":[{"label":"Arrow","value":"arrow"},{"label":"Streak","value":"streak"},{"label":"Dot","value":"dot"},{"label":"Square","value":"square"},{"label":"Glow","value":"glow"}],"component":"ParticleFlow"},{"id":"fx","prop":"count","kind":"range","label":"Count","value":6000,"min":1000,"max":16000,"step":500,"component":"ParticleFlow"},{"id":"fx","prop":"size","kind":"range","label":"Size","value":1.2,"min":0.3,"max":3,"step":0.05,"component":"ParticleFlow"},{"id":"fx","prop":"trails","kind":"range","label":"Trails","value":0,"min":0,"max":1,"step":0.01,"component":"ParticleFlow"},{"id":"fx","prop":"speed","kind":"range","label":"Flow Speed","value":1,"min":0.2,"max":3,"step":0.05,"component":"ParticleFlow"},{"id":"fx","prop":"force","kind":"range","label":"Cursor Force","value":1,"min":0,"max":3,"step":0.05,"component":"ParticleFlow"},{"id":"fx","prop":"swirl","kind":"range","label":"Swirl","value":25,"min":0,"max":60,"step":1,"component":"ParticleFlow"},{"id":"fx","prop":"momentum","kind":"range","label":"Momentum","value":0.6,"min":0,"max":1,"step":0.01,"component":"ParticleFlow"}]}</script>
+<script src="app.js"></script>
+</body></html>

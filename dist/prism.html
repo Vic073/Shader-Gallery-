@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prism · Shader Gallery</title><meta name="description" content="A beam of light that fans out and splits into a slowly-rotating rainbow past a controllable point. Transparent background — composite over a dark layer.">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Prism shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Prism</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°031</p>
+      <h1 class="display reveal" style="--i:1">Prism</h1>
+      <p class="lede reveal" style="--i:2">A beam of light that fans out and splits into a slowly-rotating rainbow past a controllable point. Transparent background — composite over a dark layer.</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="plasma.html" title="Plasma" aria-label="Previous: Plasma">← Prev</a>
+      <a class="btn" href="radial-gradient.html" title="Radial Gradient" aria-label="Next: Radial Gradient">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">9 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"prism","title":"Prism","components":[{"type":"Prism","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"beamWidth","kind":"range","label":"Beam Width","value":0.04,"min":0.002,"max":0.3,"step":0.002,"component":"Prism"},{"id":"fx","prop":"intensity","kind":"range","label":"Intensity","value":1.6,"min":0,"max":4,"step":0.01,"component":"Prism"},{"id":"fx","prop":"beamColor","kind":"color","label":"Beam Color","value":"#ffffff","component":"Prism"},{"id":"fx","prop":"startFalloff","kind":"range","label":"Start Falloff","value":0.15,"min":0,"max":1,"step":0.01,"component":"Prism"},{"id":"fx","prop":"endFalloff","kind":"range","label":"End Falloff","value":0.6,"min":0.02,"max":2,"step":0.01,"component":"Prism"},{"id":"fx","prop":"spread","kind":"range","label":"Spread","value":0.7,"min":0,"max":3,"step":0.01,"component":"Prism"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0.12,"min":0.001,"max":1,"step":0.005,"component":"Prism"},{"id":"fx","prop":"saturation","kind":"range","label":"Saturation","value":0.95,"min":0,"max":1,"step":0.01,"component":"Prism"},{"id":"fx","prop":"speed","kind":"range","label":"Hue Speed","value":0.1,"min":-1,"max":1,"step":0.01,"component":"Prism"}]}</script>
+<script src="app.js"></script>
+</body></html>

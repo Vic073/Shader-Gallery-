@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sine Wave · Shader Gallery</title><meta name="description" content="Animated wave with thickness and softness">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Sine Wave shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Sine Wave</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°037</p>
+      <h1 class="display reveal" style="--i:1">Sine Wave</h1>
+      <p class="lede reveal" style="--i:2">Animated wave with thickness and softness</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="simplex-noise.html" title="Simplex Noise" aria-label="Previous: Simplex Noise">← Prev</a>
+      <a class="btn" href="solid-color.html" title="Solid Color" aria-label="Next: Solid Color">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">7 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"sine-wave","title":"Sine Wave","components":[{"type":"SineWave","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"color","kind":"color","label":"Color","value":"#ffffff","component":"SineWave"},{"id":"fx","prop":"amplitude","kind":"range","label":"Amplitude","value":0.15,"min":0,"max":1,"step":0.1,"component":"SineWave"},{"id":"fx","prop":"frequency","kind":"range","label":"Frequency","value":1,"min":0.1,"max":20,"step":0.1,"component":"SineWave"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":1,"min":-5,"max":5,"step":0.1,"component":"SineWave"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":0,"max":360,"step":1,"component":"SineWave"},{"id":"fx","prop":"thickness","kind":"range","label":"Thickness","value":0.2,"min":0,"max":2,"step":0.1,"component":"SineWave"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0.4,"min":0,"max":1,"step":0.1,"component":"SineWave"}]}</script>
+<script src="app.js"></script>
+</body></html>

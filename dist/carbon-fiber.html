@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carbon Fiber · Shader Gallery</title><meta name="description" content="Photorealistic woven carbon fibre — interlaced tows whose anisotropic sheen flips ninety degrees cell to cell, raised into a quilted weave and finished with a glossy clearcoat that mirrors the studio. Plain or twill, in any shape.">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Carbon Fiber shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Shape%20Effects">Shape Effects</a><span aria-hidden="true">/</span><span aria-current="page">Carbon Fiber</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Shape Effects)</b> N°055</p>
+      <h1 class="display reveal" style="--i:1">Carbon Fiber</h1>
+      <p class="lede reveal" style="--i:2">Photorealistic woven carbon fibre — interlaced tows whose anisotropic sheen flips ninety degrees cell to cell, raised into a quilted weave and finished with a glossy clearcoat that mirrors the studio. Plain or twill, in any shape.</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="brushed-metal.html" title="Brushed Metal" aria-label="Previous: Brushed Metal">← Prev</a>
+      <a class="btn" href="chrome.html" title="Chrome" aria-label="Next: Chrome">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"carbon-fiber","title":"Carbon Fiber","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"CarbonFiber","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1,"min":0.1,"max":3,"step":0.01,"component":"CarbonFiber"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"CarbonFiber"},{"id":"fx","prop":"lightColor","kind":"color","label":"Fiber Sheen","value":"#b9bdc6","component":"CarbonFiber"},{"id":"fx","prop":"darkColor","kind":"color","label":"Resin Color","value":"#0b0c0e","component":"CarbonFiber"},{"id":"fx","prop":"weaveStyle","kind":"select","label":"Weave","value":"twill","options":[{"label":"Twill (2×2)","value":"twill"},{"label":"Plain","value":"plain"}],"component":"CarbonFiber"},{"id":"fx","prop":"weaveScale","kind":"range","label":"Weave Scale","value":30,"min":2,"max":50,"step":0.5,"component":"CarbonFiber"},{"id":"fx","prop":"weaveAngle","kind":"range","label":"Weave Angle","value":0,"min":0,"max":360,"step":1,"component":"CarbonFiber"},{"id":"fx","prop":"relief","kind":"range","label":"Weave Depth","value":0.5,"min":0,"max":1,"step":0.01,"component":"CarbonFiber"},{"id":"fx","prop":"fiberSheen","kind":"range","label":"Fiber Sheen","value":1.2,"min":0,"max":1.5,"step":0.01,"component":"CarbonFiber"},{"id":"fx","prop":"roughness","kind":"range","label":"Roughness","value":0.5,"min":0,"max":1,"step":0.01,"component":"CarbonFiber"}]}</script>
+<script src="app.js"></script>
+</body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Channel Blur · Shader Gallery</title><meta name="description" content="Independent blur for red, green, and blue channels">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Channel Blur shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Blurs">Blurs</a><span aria-hidden="true">/</span><span aria-current="page">Channel Blur</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Blurs)</b> N°148</p>
+      <h1 class="display reveal" style="--i:1">Channel Blur</h1>
+      <p class="lede reveal" style="--i:2">Independent blur for red, green, and blue channels</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="bokeh-blur.html" title="Bokeh Blur" aria-label="Previous: Bokeh Blur">← Prev</a>
+      <a class="btn" href="diffuse-blur.html" title="Diffuse Blur" aria-label="Next: Diffuse Blur">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">3 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"channel-blur","title":"Channel Blur","components":[{"type":"ChannelBlur","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"redIntensity","kind":"range","label":"Red Intensity","value":0,"min":0,"max":100,"step":1,"component":"ChannelBlur"},{"id":"fx","prop":"greenIntensity","kind":"range","label":"Green Intensity","value":20,"min":0,"max":100,"step":1,"component":"ChannelBlur"},{"id":"fx","prop":"blueIntensity","kind":"range","label":"Blue Intensity","value":40,"min":0,"max":100,"step":1,"component":"ChannelBlur"}]}</script>
+<script src="app.js"></script>
+</body></html>

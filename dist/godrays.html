@@ -2,38 +2,47 @@
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Godrays · Shader Gallery</title><meta name="description" content="Volumetric light shafts streaming in from a point you control.">
-<link rel="stylesheet" href="style.css"></head>
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
 <body class="detail">
-
-<header class="nav">
-  <a class="brand" href="index.html"><span class="dot"></span>Shader Gallery</a>
-  <nav class="links" aria-label="Shaders">
-    <a href="aurora.html">Aurora</a><a href="plasma.html">Plasma</a><a href="flowing-gradient.html">Flowing Gradient</a><a href="liquid-metal.html">Liquid Metal</a><a href="nebula.html">Nebula</a><a href="kaleidoscope.html">Kaleidoscope</a><a href="glitch.html">Glitch</a><a href="halftone.html">Halftone</a><a href="dither.html">Dither</a><a href="reaction-diffusion.html">Reaction Diffusion</a><a href="cursor-trail.html">Cursor Trail</a><a href="voronoi.html">Voronoi</a><a href="godrays.html" aria-current="page">Godrays</a>
-  </nav>
-</header>
-<main class="layout">
-  <section class="stage-wrap">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
     <canvas id="stage" aria-label="Godrays shader preview"></canvas>
     <div class="fallback" id="fallback" hidden></div>
-    
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Godrays</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°020</p>
+      <h1 class="display reveal" style="--i:1">Godrays</h1>
+      <p class="lede reveal" style="--i:2">Volumetric light shafts streaming in from a point you control.</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="gabor-noise.html" title="Gabor Noise" aria-label="Previous: Gabor Noise">← Prev</a>
+      <a class="btn" href="grid.html" title="Grid" aria-label="Next: Grid">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
   </section>
-  <aside class="panel">
-    <p class="eyebrow">Textures</p>
-    <h1>Godrays</h1>
-    <p class="lede">Volumetric light shafts streaming in from a point you control.</p>
-    <form id="controls" class="controls" onsubmit="return false"></form>
-    <button id="reset" class="btn ghost" type="button">Reset</button>
-    <details class="code" open>
-      <summary>Code</summary>
-      <pre id="code" aria-label="Generated code"></pre>
-      <button id="copy" class="btn" type="button">Copy code</button>
-    </details>
-    <div class="pager">
-      <a href="voronoi.html">← Voronoi</a>
-      <a href="aurora.html">Aurora →</a>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">5 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
     </div>
   </aside>
-</main>
+</div>
 <script>window.__PAGE__={"slug":"godrays","title":"Godrays","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#050814","colorB":"#0d1330","angle":90}},{"type":"Godrays","id":"fx","props":{"center":{"x":0.2,"y":0}}}],"controls":[{"id":"fx","prop":"rayColor","kind":"color","label":"Ray Color","value":"#4283fb","component":"Godrays"},{"id":"fx","prop":"density","kind":"range","label":"Density","value":0.3,"min":0,"max":1,"step":0.1,"component":"Godrays"},{"id":"fx","prop":"intensity","kind":"range","label":"Intensity","value":0.8,"min":0,"max":1,"step":0.1,"component":"Godrays"},{"id":"fx","prop":"spotty","kind":"range","label":"Spotty","value":1,"min":0,"max":1,"step":0.1,"component":"Godrays"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":0.5,"min":0,"max":2,"step":0.1,"component":"Godrays"}]}</script>
 <script src="app.js"></script>
 </body></html>

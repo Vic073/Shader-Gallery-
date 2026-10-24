@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ascii · Shader Gallery</title><meta name="description" content="Convert imagery to ASCII character art">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Ascii shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Stylize">Stylize</a><span aria-hidden="true">/</span><span aria-current="page">Ascii</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Stylize)</b> N°114</p>
+      <h1 class="display reveal" style="--i:1">Ascii</h1>
+      <p class="lede reveal" style="--i:2">Convert imagery to ASCII character art</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="wave-distortion.html" title="Wave Distortion" aria-label="Previous: Wave Distortion">← Prev</a>
+      <a class="btn" href="chalkboard.html" title="Chalkboard" aria-label="Next: Chalkboard">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">6 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"ascii","title":"Ascii","components":[{"type":"Ascii","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"cellSize","kind":"range","label":"Cell Size","value":30,"min":8,"max":100,"step":1,"component":"Ascii"},{"id":"fx","prop":"fontFamily","kind":"select","label":"Font Family","value":"JetBrains Mono","options":[{"label":"Azeret Mono","value":"Azeret Mono"},{"label":"Courier Prime","value":"Courier Prime"},{"label":"Cutive Mono","value":"Cutive Mono"},{"label":"Fira Code","value":"Fira Code"},{"label":"Geist Mono","value":"Geist Mono"},{"label":"IBM Plex Mono","value":"IBM Plex Mono"},{"label":"JetBrains Mono","value":"JetBrains Mono"},{"label":"Major Mono Display","value":"Major Mono Display"},{"label":"Martian Mono","value":"Martian Mono"},{"label":"Nova Mono","value":"Nova Mono"},{"label":"Press Start 2P","value":"Press Start 2P"},{"label":"Roboto Mono","value":"Roboto Mono"},{"label":"Share Tech Mono","value":"Share Tech Mono"},{"label":"Silkscreen","value":"Silkscreen"},{"label":"Source Code Pro","value":"Source Code Pro"},{"label":"Space Mono","value":"Space Mono"},{"label":"Syne Mono","value":"Syne Mono"},{"label":"VT323","value":"VT323"},{"label":"Xanh Mono","value":"Xanh Mono"}],"component":"Ascii"},{"id":"fx","prop":"spacing","kind":"range","label":"Character Size","value":1,"min":0,"max":1,"step":0.01,"component":"Ascii"},{"id":"fx","prop":"gamma","kind":"range","label":"Gamma","value":1,"min":0.25,"max":3,"step":0.01,"component":"Ascii"},{"id":"fx","prop":"alphaThreshold","kind":"range","label":"Alpha Threshold","value":0,"min":0,"max":1,"step":0.01,"component":"Ascii"},{"id":"fx","prop":"preserveAlpha","kind":"toggle","label":"Preserve Alpha","value":true,"component":"Ascii"}]}</script>
+<script src="app.js"></script>
+</body></html>

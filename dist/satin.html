@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Satin · Shader Gallery</title><meta name="description" content="Flowing satin — a draped cloth of soft rippling folds lit like real fabric: a highlight streaked along the weave, a velvet sheen on the fold flanks and creases falling into shadow, swaying gently in a breeze">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Satin shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Satin</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°034</p>
+      <h1 class="display reveal" style="--i:1">Satin</h1>
+      <p class="lede reveal" style="--i:2">Flowing satin — a draped cloth of soft rippling folds lit like real fabric: a highlight streaked along the weave, a velvet sheen on the fold flanks and creases falling into shadow, swaying gently in a breeze</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="ripples.html" title="Ripples" aria-label="Previous: Ripples">← Prev</a>
+      <a class="btn" href="scratches.html" title="Scratches" aria-label="Next: Scratches">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"satin","title":"Satin","components":[{"type":"Satin","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"color","kind":"color","label":"Color","value":"#c92c40","component":"Satin"},{"id":"fx","prop":"highlightColor","kind":"color","label":"Highlight","value":"#c4667b","component":"Satin"},{"id":"fx","prop":"foldCount","kind":"range","label":"Folds","value":7,"min":1,"max":12,"step":1,"component":"Satin"},{"id":"fx","prop":"foldDirection","kind":"range","label":"Direction","value":90,"min":0,"max":360,"step":1,"component":"Satin"},{"id":"fx","prop":"foldDepth","kind":"range","label":"Depth","value":0.5,"min":0,"max":1,"step":0.01,"component":"Satin"},{"id":"fx","prop":"foldWidth","kind":"range","label":"Width","value":0.14,"min":0.04,"max":0.4,"step":0.01,"component":"Satin"},{"id":"fx","prop":"pinning","kind":"range","label":"Pinning","value":0.6,"min":0,"max":1,"step":0.01,"component":"Satin"},{"id":"fx","prop":"seed","kind":"range","label":"Seed","value":0,"min":0,"max":100,"step":1,"component":"Satin"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":1,"min":0,"max":4,"step":0.01,"component":"Satin"},{"id":"fx","prop":"breeze","kind":"range","label":"Breeze","value":0.4,"min":0,"max":1,"step":0.01,"component":"Satin"}]}</script>
+<script src="app.js"></script>
+</body></html>

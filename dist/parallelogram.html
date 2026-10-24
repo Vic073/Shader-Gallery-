@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Parallelogram · Shader Gallery</title><meta name="description" content="Parallelogram with adjustable width, height and skew">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Parallelogram shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Shapes">Shapes</a><span aria-hidden="true">/</span><span aria-current="page">Parallelogram</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Shapes)</b> N°189</p>
+      <h1 class="display reveal" style="--i:1">Parallelogram</h1>
+      <p class="lede reveal" style="--i:2">Parallelogram with adjustable width, height and skew</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="line.html" title="Line" aria-label="Previous: Line">← Prev</a>
+      <a class="btn" href="polygon.html" title="Polygon" aria-label="Next: Polygon">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">9 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"parallelogram","title":"Parallelogram","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"Parallelogram","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"color","kind":"color","label":"Color","value":"#ffffff","component":"Parallelogram"},{"id":"fx","prop":"width","kind":"range","label":"Width","value":0.32,"min":0.02,"max":1,"step":0.01,"component":"Parallelogram"},{"id":"fx","prop":"height","kind":"range","label":"Height","value":0.22,"min":0.02,"max":1,"step":0.01,"component":"Parallelogram"},{"id":"fx","prop":"skew","kind":"range","label":"Skew","value":0.15,"min":-0.4,"max":0.4,"step":0.01,"component":"Parallelogram"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"Parallelogram"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0,"min":0,"max":0.1,"step":0.001,"component":"Parallelogram"},{"id":"fx","prop":"strokeThickness","kind":"range","label":"Stroke Thickness","value":0,"min":0,"max":0.2,"step":0.005,"component":"Parallelogram"},{"id":"fx","prop":"strokeColor","kind":"color","label":"Stroke Color","value":"#000000","component":"Parallelogram"},{"id":"fx","prop":"strokePosition","kind":"select","label":"Stroke Position","value":"center","options":[{"label":"Outside","value":"outside"},{"label":"Center","value":"center"},{"label":"Inside","value":"inside"}],"component":"Parallelogram"}]}</script>
+<script src="app.js"></script>
+</body></html>

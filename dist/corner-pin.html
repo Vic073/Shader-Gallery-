@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Corner Pin · Shader Gallery</title><meta name="description" content="Pin each corner of the content to an arbitrary position for a free perspective warp">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Corner Pin shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Distortions">Distortions</a><span aria-hidden="true">/</span><span aria-current="page">Corner Pin</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Distortions)</b> N°097</p>
+      <h1 class="display reveal" style="--i:1">Corner Pin</h1>
+      <p class="lede reveal" style="--i:2">Pin each corner of the content to an arbitrary position for a free perspective warp</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="concentric-spin.html" title="Concentric Spin" aria-label="Previous: Concentric Spin">← Prev</a>
+      <a class="btn" href="flip.html" title="Flip" aria-label="Next: Flip">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">2 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"corner-pin","title":"Corner Pin","components":[{"type":"CornerPin","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"amount","kind":"range","label":"Amount","value":1,"min":0,"max":1,"step":0.01,"component":"CornerPin"},{"id":"fx","prop":"edges","kind":"select","label":"Edges","value":"transparent","options":[{"label":"Stretch","value":"stretch"},{"label":"Transparent","value":"transparent"},{"label":"Mirror","value":"mirror"},{"label":"Wrap","value":"wrap"}],"component":"CornerPin"}]}</script>
+<script src="app.js"></script>
+</body></html>

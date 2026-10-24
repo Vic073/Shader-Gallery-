@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conic Gradient · Shader Gallery</title><meta name="description" content="Colors sweep in a full circle around a center point, like a color wheel">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Conic Gradient shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Conic Gradient</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°010</p>
+      <h1 class="display reveal" style="--i:1">Conic Gradient</h1>
+      <p class="lede reveal" style="--i:2">Colors sweep in a full circle around a center point, like a color wheel</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="color-wheel.html" title="Color Wheel" aria-label="Previous: Color Wheel">← Prev</a>
+      <a class="btn" href="curl-noise.html" title="Curl Noise" aria-label="Next: Curl Noise">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">4 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"conic-gradient","title":"Conic Gradient","components":[{"type":"ConicGradient","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#FF0080","component":"ConicGradient"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#00BFFF","component":"ConicGradient"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"ConicGradient"},{"id":"fx","prop":"repeat","kind":"range","label":"Repeat","value":1,"min":1,"max":24,"step":1,"component":"ConicGradient"}]}</script>
+<script src="app.js"></script>
+</body></html>

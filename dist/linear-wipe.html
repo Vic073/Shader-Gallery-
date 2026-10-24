@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Linear Wipe · Shader Gallery</title><meta name="description" content="Wipe the content away along a straight edge with a soft feathered transition">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Linear Wipe shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Transitions">Transitions</a><span aria-hidden="true">/</span><span aria-current="page">Linear Wipe</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Transitions)</b> N°173</p>
+      <h1 class="display reveal" style="--i:1">Linear Wipe</h1>
+      <p class="lede reveal" style="--i:2">Wipe the content away along a straight edge with a soft feathered transition</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="iris-wipe.html" title="Iris Wipe" aria-label="Previous: Iris Wipe">← Prev</a>
+      <a class="btn" href="noise-dissolve.html" title="Noise Dissolve" aria-label="Next: Noise Dissolve">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">4 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"linear-wipe","title":"Linear Wipe","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"LinearWipe","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"progress","kind":"range","label":"Progress","value":0.5,"min":0,"max":1,"step":0.01,"component":"LinearWipe"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":0,"max":360,"step":1,"component":"LinearWipe"},{"id":"fx","prop":"feather","kind":"range","label":"Feather","value":0.1,"min":0,"max":1,"step":0.01,"component":"LinearWipe"},{"id":"fx","prop":"invert","kind":"toggle","label":"Invert","value":false,"component":"LinearWipe"}]}</script>
+<script src="app.js"></script>
+</body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Key Frames · Shader Gallery</title><meta name="description" content="Motion-tracking overlay — trackers hunt and follow features in the content, dropping keyframe diamonds behind them along their motion paths, like a compositor mid-track">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Key Frames shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Stylize">Stylize</a><span aria-hidden="true">/</span><span aria-current="page">Key Frames</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Stylize)</b> N°129</p>
+      <h1 class="display reveal" style="--i:1">Key Frames</h1>
+      <p class="lede reveal" style="--i:2">Motion-tracking overlay — trackers hunt and follow features in the content, dropping keyframe diamonds behind them along their motion paths, like a compositor mid-track</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="halftone.html" title="Halftone" aria-label="Previous: Halftone">← Prev</a>
+      <a class="btn" href="lens-distortion.html" title="Lens Distortion" aria-label="Next: Lens Distortion">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"key-frames","title":"Key Frames","components":[{"type":"KeyFrames","id":"fx","props":{},"children":[{"type":"Voronoi","id":"src","props":{"colorA":"#4361ee","colorB":"#f72585","colorBorder":"#0b0b1a","scale":6,"speed":0.4}}]}],"controls":[{"id":"fx","prop":"trackers","kind":"range","label":"Trackers","value":12,"min":1,"max":64,"step":1,"component":"KeyFrames"},{"id":"fx","prop":"detect","kind":"select","label":"Detect","value":"bright","options":[{"label":"Brightness","value":"bright"},{"label":"Darkness","value":"dark"},{"label":"Transparency","value":"alpha"},{"label":"Red","value":"red"},{"label":"Green","value":"green"},{"label":"Blue","value":"blue"}],"component":"KeyFrames"},{"id":"fx","prop":"threshold","kind":"range","label":"Threshold","value":0.15,"min":0,"max":0.9,"step":0.01,"component":"KeyFrames"},{"id":"fx","prop":"variance","kind":"range","label":"Variance","value":0.8,"min":0,"max":1,"step":0.01,"component":"KeyFrames"},{"id":"fx","prop":"agility","kind":"range","label":"Agility","value":0.5,"min":0,"max":1,"step":0.01,"component":"KeyFrames"},{"id":"fx","prop":"lifespan","kind":"range","label":"Lifespan","value":6,"min":0,"max":20,"step":0.5,"component":"KeyFrames"},{"id":"fx","prop":"trail","kind":"range","label":"Trail","value":1,"min":0,"max":1,"step":0.01,"component":"KeyFrames"},{"id":"fx","prop":"markerSize","kind":"range","label":"Marker Size","value":28,"min":8,"max":80,"step":1,"component":"KeyFrames"},{"id":"fx","prop":"lineWidth","kind":"range","label":"Line Width","value":1.5,"min":0.5,"max":6,"step":0.25,"component":"KeyFrames"},{"id":"fx","prop":"markerColor","kind":"color","label":"Tracker","value":"#54d66b","component":"KeyFrames"}]}</script>
+<script src="app.js"></script>
+</body></html>

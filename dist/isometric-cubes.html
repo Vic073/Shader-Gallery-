@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Isometric Cubes · Shader Gallery</title><meta name="description" content="Isometric tumbling-blocks tiling — a 3D cube illusion (rhombille pattern)">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Isometric Cubes shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Isometric Cubes</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°024</p>
+      <h1 class="display reveal" style="--i:1">Isometric Cubes</h1>
+      <p class="lede reveal" style="--i:2">Isometric tumbling-blocks tiling — a 3D cube illusion (rhombille pattern)</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="image-texture.html" title="Image Texture" aria-label="Previous: Image Texture">← Prev</a>
+      <a class="btn" href="linear-gradient.html" title="Linear Gradient" aria-label="Next: Linear Gradient">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">8 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"isometric-cubes","title":"Isometric Cubes","components":[{"type":"IsometricCubes","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#7c5cff","component":"IsometricCubes"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#ff5c9d","component":"IsometricCubes"},{"id":"fx","prop":"lineColor","kind":"color","label":"Edges","value":"#000000","component":"IsometricCubes"},{"id":"fx","prop":"cells","kind":"range","label":"Cells","value":6,"min":1,"max":30,"step":1,"component":"IsometricCubes"},{"id":"fx","prop":"thickness","kind":"range","label":"Thickness","value":1,"min":0,"max":10,"step":0.1,"component":"IsometricCubes"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"IsometricCubes"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0,"min":0,"max":1,"step":0.01,"component":"IsometricCubes"},{"id":"fx","prop":"colorVariation","kind":"range","label":"Variation","value":1,"min":0,"max":1,"step":0.01,"component":"IsometricCubes"}]}</script>
+<script src="app.js"></script>
+</body></html>

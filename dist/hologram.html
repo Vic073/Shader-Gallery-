@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hologram · Shader Gallery</title><meta name="description" content="Volumetric sci-fi hologram — a translucent emissive projection of the shape with fresnel-lit edges, depth scan-lines that wrap 3D forms, CRT scanlines, flicker and beam wobble">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Hologram shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Shape%20Effects">Shape Effects</a><span aria-hidden="true">/</span><span aria-current="page">Hologram</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Shape Effects)</b> N°063</p>
+      <h1 class="display reveal" style="--i:1">Hologram</h1>
+      <p class="lede reveal" style="--i:2">Volumetric sci-fi hologram — a translucent emissive projection of the shape with fresnel-lit edges, depth scan-lines that wrap 3D forms, CRT scanlines, flicker and beam wobble</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="heatmap.html" title="Heatmap" aria-label="Previous: Heatmap">← Prev</a>
+      <a class="btn" href="holographic.html" title="Holographic" aria-label="Next: Holographic">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"hologram","title":"Hologram","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"Hologram","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1,"min":0.1,"max":3,"step":0.01,"component":"Hologram"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"Hologram"},{"id":"fx","prop":"color","kind":"color","label":"Color","value":"#5ec8ff","component":"Hologram"},{"id":"fx","prop":"brightness","kind":"range","label":"Brightness","value":2.5,"min":0.2,"max":3,"step":0.01,"component":"Hologram"},{"id":"fx","prop":"edgeSoftness","kind":"range","label":"Edge Softness","value":0.04,"min":0,"max":1,"step":0.01,"component":"Hologram"},{"id":"fx","prop":"fill","kind":"range","label":"Volume Fill","value":0.45,"min":0,"max":1,"step":0.01,"component":"Hologram"},{"id":"fx","prop":"edgeGlow","kind":"range","label":"Edge Glow","value":1,"min":0,"max":2.5,"step":0.01,"component":"Hologram"},{"id":"fx","prop":"depthLines","kind":"range","label":"Depth Lines","value":0.5,"min":0,"max":1,"step":0.01,"component":"Hologram"},{"id":"fx","prop":"depthScale","kind":"range","label":"Depth Density","value":26,"min":4,"max":70,"step":1,"component":"Hologram"},{"id":"fx","prop":"scanlines","kind":"range","label":"Scanlines","value":0.55,"min":0,"max":1,"step":0.01,"component":"Hologram"}]}</script>
+<script src="app.js"></script>
+</body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Waveform · Shader Gallery</title><meta name="description" content="Audio-visualizer waveform — equalizer bars, a filled wave, an oscilloscope line, or a dot matrix — driven by a simulated signal whose amplitude you can map to your own audio level">
+<meta name="theme-color" content="#08080a">
+<link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+<noscript><style>.io,.reveal{opacity:1!important;transform:none!important;filter:none!important;animation:none!important}</style></noscript>
+</head>
+<body class="detail">
+<div class="scene">
+  <section class="stage-wrap" id="stage-wrap">
+    <canvas id="stage" aria-label="Waveform shader preview"></canvas>
+    <div class="fallback" id="fallback" hidden></div>
+    <header class="nav liquidGL">
+      <a class="brand" href="index.html"><i></i>Shader Gallery</a>
+      <span class="crumbs"><a href="index.html#Textures">Textures</a><span aria-hidden="true">/</span><span aria-current="page">Waveform</span></span>
+      <a class="btn" href="index.html#search">Browse 196</a>
+    </header>
+    <div class="title-block">
+      <p class="eyebrow reveal" style="--i:0"><b>(Textures)</b> N°050</p>
+      <h1 class="display reveal" style="--i:1">Waveform</h1>
+      <p class="lede reveal" style="--i:2">Audio-visualizer waveform — equalizer bars, a filled wave, an oscilloscope line, or a dot matrix — driven by a simulated signal whose amplitude you can map to your own audio level</p>
+      
+    </div>
+    <div class="dock liquidGL" role="toolbar" aria-label="Page actions">
+      <a class="btn" href="voronoi.html" title="Voronoi" aria-label="Previous: Voronoi">← Prev</a>
+      <a class="btn" href="wavelet-noise.html" title="Wavelet Noise" aria-label="Next: Wavelet Noise">Next →</a>
+      <span class="sep" aria-hidden="true"></span>
+      <button id="reset" class="btn" type="button">Reset</button>
+      <button id="glass" class="btn" type="button" aria-pressed="true" title="Toggle liquid-glass refraction">Glass</button>
+      <button id="copy" class="btn solid" type="button">Copy code</button>
+    </div>
+  </section>
+  <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
+    <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
+    <div class="panel-body">
+      <form id="controls" class="controls" onsubmit="return false"></form>
+      <details class="code" open>
+        <summary>Code</summary>
+        <pre id="code" aria-label="Generated code"></pre>
+      </details>
+    </div>
+  </aside>
+</div>
+<script>window.__PAGE__={"slug":"waveform","title":"Waveform","components":[{"type":"Waveform","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"style","kind":"select","label":"Style","value":"bars","options":[{"label":"Bars","value":"bars"},{"label":"Wave","value":"wave"},{"label":"Line","value":"line"},{"label":"Dots","value":"dots"}],"component":"Waveform"},{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#3b5bff","component":"Waveform"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#ff3bd4","component":"Waveform"},{"id":"fx","prop":"amplitude","kind":"range","label":"Amplitude","value":1,"min":0,"max":2,"step":0.01,"component":"Waveform"},{"id":"fx","prop":"frequency","kind":"range","label":"Frequency","value":1,"min":0.2,"max":3,"step":0.01,"component":"Waveform"},{"id":"fx","prop":"height","kind":"range","label":"Height","value":0.6,"min":0.05,"max":1,"step":0.01,"component":"Waveform"},{"id":"fx","prop":"align","kind":"select","label":"Align","value":"mirrored","options":[{"label":"Mirrored","value":"mirrored"},{"label":"Top","value":"top"},{"label":"Bottom","value":"bottom"}],"component":"Waveform"},{"id":"fx","prop":"count","kind":"range","label":"Count","value":32,"min":4,"max":128,"step":1,"component":"Waveform"},{"id":"fx","prop":"barWidth","kind":"range","label":"Bar Width","value":0.6,"min":0.1,"max":1,"step":0.01,"component":"Waveform"},{"id":"fx","prop":"rounding","kind":"range","label":"Rounding","value":1,"min":0,"max":1,"step":0.01,"component":"Waveform"}]}</script>
+<script src="app.js"></script>
+</body></html>
