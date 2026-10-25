@@ -170,7 +170,7 @@ await writeFile(OUT + 'index.html', idx)
 for (const [i, p] of pages.entries()) {
   let canUpload = false
   walk(p.components, (c) => { if (c.id === 'src') canUpload = true })
-  const data = { slug: p.slug, title: p.title, components: p.components, controls: p.resolved, canUpload }
+  const data = { slug: p.slug, title: p.title, components: p.components, controls: p.resolved, canUpload, accent: p.accent }
   const prev = pages[(i - 1 + pages.length) % pages.length], next = pages[(i + 1) % pages.length]
   const html = `${head(p.title + ' · Shader Gallery', p.blurb)}
 <body class="detail">

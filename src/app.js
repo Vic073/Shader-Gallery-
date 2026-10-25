@@ -1,4 +1,5 @@
-import { createShader } from 'shaders/js'
+import { createShader, isWebGPUSupported, getWebGPUSupport } from 'shaders/js'
+import { startAmbient } from './ambient.js'
 
 const page = window.__PAGE__
 const canvas = document.getElementById('stage')
@@ -11,15 +12,44 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, v) } catch { /* ignore */ } },
 }
 
-/* ---------- shader ---------- */
+/* ---------- shader ----------
+   The shaders package is WebGPU-only. When a device can't run it we say exactly why, and show a
+   small WebGL stand-in (page palette) so the page isn't a dead box. Code, links and uploads still work. */
+let ambient = null
+const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]))
+
+function explain(reason) {
+  const ua = navigator.userAgent
+  const ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)
+  const android = /Android/.test(ua)
+  const how = ios
+    ? 'On iPhone and iPad, WebGPU comes with iOS/iPadOS 26 or newer (every iOS browser uses Safari’s engine), so updating the system is what unlocks it.'
+    : android
+      ? 'On Android it needs a recent Chrome (121 or newer) on Android 12 or newer, and the phone’s GPU driver has to be on Chrome’s allow-list. Many older or budget phones aren’t.'
+      : 'Try a recent Chrome or Edge, or Safari 26+.'
+  const why = {
+    unsupported: !window.isSecureContext
+      ? 'This page isn’t on a secure (HTTPS) connection, and browsers only offer WebGPU on HTTPS or localhost.'
+      : 'This browser doesn’t offer WebGPU.',
+    'no-adapter': 'Your browser has WebGPU, but this device’s GPU or driver isn’t allowed to use it (common on older and budget phones).',
+    'no-device': 'Your browser has WebGPU, but couldn’t start it on this GPU.',
+  }[reason] || 'WebGPU stopped working on this device.'
+  return { why, how }
+}
+
 function showFallback(reason) {
   if (!fallback || !fallback.hidden) return
-  const msgs = {
-    unsupported: 'This browser doesn’t support WebGPU yet.',
-    'no-adapter': 'No compatible GPU was found for WebGPU.',
-  }
+  const { why, how } = explain(reason)
   fallback.hidden = false
-  fallback.innerHTML = `<strong>Can’t render this shader</strong><span>${msgs[reason] || 'WebGPU failed to start (' + reason + ').'} Try a recent version of Chrome, Edge, Safari or Firefox.</span>`
+  fallback.innerHTML =
+    `<strong>Live effect needs WebGPU</strong><span>${esc(why)} ${esc(how)}</span>` +
+    (page.home ? '' : '<span>You can still tune the settings: the code, links and image upload keep working, so you can run it on another device.</span>') +
+    `<code>reason: ${esc(reason)}</code>`
+  if (!ambient) {
+    const host = canvas.parentElement
+    const pal = page.accent || ['colorA', 'colorB', 'colorC', 'colorD'].map((k) => page.components[0]?.props?.[k]).filter(Boolean)
+    ambient = startAmbient(host, pal, { still: reduceMotion })
+  }
 }
 
 canvas.style.width = '100%'
@@ -70,7 +100,10 @@ const live = clone(page.components) // current preset, tracks edits for the code
 
 let shader = null
 async function start() {
-  if (!('gpu' in navigator)) return showFallback('unsupported')
+  if (!isWebGPUSupported()) {
+    const s = await getWebGPUSupport().catch(() => ({}))
+    return showFallback(s.reason || 'unsupported')
+  }
   try {
     shader?.destroy()
     shader = await createShader(canvas, { components: clone(live) }, { onError: showFallback })

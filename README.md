@@ -26,3 +26,8 @@ Append `?glass=off` to any URL, or use the "Glass" button on an effect page. The
 - Shareable links: your tweaks are stored in the URL (`#v=...`); "Copy link" copies it. Links are validated and clamped on load
 - "Use your image": run wrapper effects (blurs, distortions, stylize, transitions...) on your own picture. It stays in your browser, and never goes into the link
 - Live previews on the cards in view (capped pool), `?glass=off` to disable GL glass
+
+## Devices without WebGPU
+The `shaders` package is WebGPU-only. Where WebGPU is unavailable (older phones, old iOS, some Android drivers) the site shows
+an explanation with a reason code and a small animated WebGL stand-in in the page's palette. Code tabs, share links and the
+image upload still work there. Needs: Chrome 121+ on Android 12+, Safari on iOS/macOS 26+, or recent desktop Chrome/Edge.
