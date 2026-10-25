@@ -234,3 +234,11 @@ select option{background:#14141a}
   .filters{top:8px;border-radius:22px}
   .count{display:none}
 }
+
+/* liquidGL sets pointer-events:none on each lens element (the glass itself shouldn't eat clicks).
+   Its controls must opt back in, or every button inside a lens goes dead. */
+.liquidGL a,.liquidGL button,.liquidGL input,.liquidGL select,.liquidGL label{pointer-events:auto}
+
+/* live hover preview inside a card thumbnail */
+.thumb canvas.live{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .45s var(--ease);border-radius:inherit}
+.thumb canvas.live.on{opacity:1}

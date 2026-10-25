@@ -149,6 +149,102 @@ function setupHome() {
   run(); fromHash()
 }
 
+/* ---------- home: live previews on the cards you can see ----------
+   A small pool of real shaders runs on the visible cards closest to the middle of the screen
+   (the rest keep their gradient). As you scroll, cards that leave are stopped and new ones start,
+   a few at a time so scrolling never stalls. The library shares one GPU device across all of them. */
+function setupPreviews() {
+  const grid = document.getElementById('grid')
+  if (!grid || !('gpu' in navigator) || reduceMotion) return
+  const MAX = matchMedia('(hover: none)').matches ? 3 : 8
+  const cards = [...grid.querySelectorAll('.card')]
+  const visible = new Set()
+  const live = new Map()      // card -> { canvas, inst }
+  const failed = new Set()
+  let presets = null, hovered = null, pending = 0, starting = false
+  const load = async () => (presets ??= await (await fetch('presets.json')).json())
+
+  const stop = (card) => {
+    const a = live.get(card)
+    if (!a) return
+    live.delete(card)
+    try { a.inst?.destroy() } catch { /* ignore */ }
+    a.canvas.remove()
+  }
+
+  async function start(card) {
+    const comps = (await load())[card.dataset.slug]
+    if (!comps || !visible.has(card) || live.has(card)) return
+    const canvas = document.createElement('canvas')
+    canvas.className = 'live'
+    card.querySelector('.thumb').prepend(canvas)
+    const a = { canvas, inst: null }
+    live.set(card, a)
+    try {
+      const inst = await createShader(canvas, { components: clone(comps) }, {
+        onError: () => { failed.add(card); stop(card) },
+      })
+      if (live.get(card) !== a) { inst.destroy(); return }   // scrolled away while starting
+      a.inst = inst
+      requestAnimationFrame(() => canvas.classList.add('on'))
+    } catch {
+      failed.add(card); stop(card)
+    }
+  }
+
+  // Decide who should be live: hovered card first, then visible cards nearest the viewport centre.
+  async function reconcile() {
+    pending = 0
+    const mid = innerHeight / 2
+    const want = [...visible]
+      .filter((c) => !c.hidden && !failed.has(c))
+      .sort((x, y) => {
+        if (x === hovered) return -1
+        if (y === hovered) return 1
+        const dx = Math.abs(x.getBoundingClientRect().top + 110 - mid)
+        const dy = Math.abs(y.getBoundingClientRect().top + 110 - mid)
+        return dx - dy
+      })
+      .slice(0, MAX)
+    const wantSet = new Set(want)
+    for (const c of [...live.keys()]) if (!wantSet.has(c)) stop(c)
+    if (starting) return
+    starting = true
+    for (const c of want) {
+      if (live.has(c)) continue
+      await start(c)
+      await new Promise((r) => setTimeout(r, 90))          // stagger: one new shader at a time
+    }
+    starting = false
+    // The visible set may have changed while we were starting; catch up (failed cards are excluded, so this ends).
+    if (want.some((c) => !live.has(c) && !failed.has(c) && visible.has(c) && !c.hidden)) schedule()
+  }
+  const schedule = () => { if (!pending) pending = setTimeout(reconcile, 140) }
+
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) { e.isIntersecting ? visible.add(e.target) : visible.delete(e.target) }
+    schedule()
+  }, { rootMargin: '-6% 0px -6% 0px' })
+  cards.forEach((c) => io.observe(c))
+
+  addEventListener('scroll', schedule, { passive: true })
+  addEventListener('resize', schedule)
+  document.getElementById('q')?.addEventListener('input', schedule)
+  document.getElementById('chips')?.addEventListener('click', () => setTimeout(schedule, 60))
+
+  grid.addEventListener('pointerover', (e) => {
+    const c = e.target.closest?.('.card')
+    if (c && c !== hovered) { hovered = c; schedule() }
+  })
+  grid.addEventListener('pointerleave', () => { hovered = null })
+
+  // Pause everything when the tab is hidden.
+  document.addEventListener('visibilitychange', () => {
+    for (const a of live.values()) { try { document.hidden ? a.inst?.pause() : a.inst?.resume() } catch { /* ignore */ } }
+  })
+  addEventListener('pagehide', () => [...live.keys()].forEach(stop))
+}
+
 /* ---------- effect page: controls + code ---------- */
 function setupPanel() {
   const form = document.getElementById('controls')
@@ -265,7 +361,7 @@ await createShader(canvas, ${json})`
 
 /* ---------- boot ---------- */
 setupReveal()
-if (page.home) setupHome()
+if (page.home) { setupHome(); setupPreviews() }
 
 start().then(async () => {
   if (!page.home) setupPanel()

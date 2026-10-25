@@ -77,10 +77,11 @@ console.log(`Validated ${pages.length} pages OK`)
 
 /* ---------- bundle the runtime ---------- */
 await build({
-  entryPoints: ['src/app.js'],
-  bundle: true, minify: true, format: 'iife', target: 'es2022',
-  outfile: OUT + 'app.js', logLevel: 'warning',
+  entryPoints: { app: 'src/app.js' },
+  bundle: true, minify: true, format: 'esm', splitting: true, target: 'es2022',
+  outdir: OUT, chunkNames: 'chunks/[name]-[hash]', logLevel: 'warning',
 })
+await writeFile(OUT + 'presets.json', JSON.stringify(Object.fromEntries(pages.map((p) => [p.slug, p.components]))))
 await cp('src/style.css', OUT + 'style.css')
 await cp('src/fonts', OUT + 'fonts', { recursive: true })
 
@@ -144,7 +145,7 @@ const idx = `${head('Shader Gallery', `${pages.length} live WebGPU shader effect
   </section>
   <section class="grid" id="grid" aria-label="All effects">
     ${pages.map((p, i) => `
-    <a class="card io" style="--d:${(i % 4) * 60}" href="${p.slug}.html" data-cat="${esc(p.category)}" data-text="${esc((p.title + ' ' + p.category + ' ' + p.blurb).toLowerCase())}">
+    <a class="card io" style="--d:${(i % 4) * 60}" href="${p.slug}.html" data-slug="${p.slug}" data-cat="${esc(p.category)}" data-text="${esc((p.title + ' ' + p.category + ' ' + p.blurb).toLowerCase())}">
       <span class="thumb" style="background:${grad(p)}"><em>N°${pad3(i + 1)}</em><u aria-hidden="true">↗</u></span>
       <span class="cat">${esc(p.category)}</span>
       <strong>${esc(p.title)}</strong>
@@ -162,7 +163,7 @@ const idx = `${head('Shader Gallery', `${pages.length} live WebGPU shader effect
   home: true,
   components: [{ type: 'FlowingGradient', id: 'fx', props: { colorA: '#05060f', colorB: '#2a1fd6', colorC: '#d6336c', colorD: '#f4c28a', speed: 0.6, distortion: 0.75 } }],
 })}</script>
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 </body></html>`
 await writeFile(OUT + 'index.html', idx)
 
@@ -207,7 +208,7 @@ for (const [i, p] of pages.entries()) {
   </aside>
 </div>
 <script>window.__PAGE__=${JSON.stringify(data)}</script>
-<script src="app.js"></script>
+<script type="module" src="app.js"></script>
 </body></html>`
   await writeFile(OUT + p.slug + '.html', html)
 }

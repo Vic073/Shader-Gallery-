@@ -4,7 +4,7 @@ Multi-page site: one page per effect from the open-source `shaders` package (Web
 
 ## Run it
     cd dist && python3 -m http.server 8080     # then open http://localhost:8080
-(or `npx serve dist`). WebGPU needs a recent Chrome, Edge, Safari or Firefox, on localhost or HTTPS.
+(or `npx serve dist`). Open it over http(s), not by double-clicking the HTML files: the scripts are ES modules. WebGPU needs a recent Chrome, Edge, Safari or Firefox, on localhost or HTTPS.
 
 ## Rebuild / add a page
     npm install
