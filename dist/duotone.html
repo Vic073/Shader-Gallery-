@@ -35,14 +35,23 @@
   <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
     <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">3 params</p></div>
     <div class="panel-body">
+      <div class="panel-actions">
+        <button id="share" class="btn sm" type="button" title="Copy a link that restores your current settings">Copy link</button>
+        <button id="imgbtn" class="btn sm" type="button" title="Run this effect on your own picture">Use your image</button>
+        <button id="imgreset" class="btn sm" type="button" hidden>Demo source</button>
+        <input id="imgfile" type="file" accept="image/*" hidden>
+      </div>
       <form id="controls" class="controls" onsubmit="return false"></form>
       <details class="code" open>
         <summary>Code</summary>
+        <div class="tabs" role="tablist" aria-label="Framework">
+          <button class="tab" role="tab" type="button" data-fw="react" aria-selected="false">React</button><button class="tab" role="tab" type="button" data-fw="vue" aria-selected="false">Vue</button><button class="tab" role="tab" type="button" data-fw="svelte" aria-selected="false">Svelte</button><button class="tab" role="tab" type="button" data-fw="solid" aria-selected="false">Solid</button><button class="tab" role="tab" type="button" data-fw="js" aria-selected="false">JS</button>
+        </div>
         <pre id="code" aria-label="Generated code"></pre>
       </details>
     </div>
   </aside>
 </div>
-<script>window.__PAGE__={"slug":"duotone","title":"Duotone","components":[{"type":"Duotone","id":"fx","props":{},"children":[{"type":"FlowingGradient","id":"src","props":{"colorA":"#0b132b","colorB":"#1c7ed6","colorC":"#f06595","colorD":"#ffd43b","speed":0.8}}]}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#ff0000","component":"Duotone"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#023af4","component":"Duotone"},{"id":"fx","prop":"blend","kind":"range","label":"Blend","value":0.5,"min":0,"max":1,"step":0.1,"component":"Duotone"}]}</script>
+<script>window.__PAGE__={"slug":"duotone","title":"Duotone","components":[{"type":"Duotone","id":"fx","props":{},"children":[{"type":"FlowingGradient","id":"src","props":{"colorA":"#0b132b","colorB":"#1c7ed6","colorC":"#f06595","colorD":"#ffd43b","speed":0.8}}]}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#ff0000","component":"Duotone"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#023af4","component":"Duotone"},{"id":"fx","prop":"blend","kind":"range","label":"Blend","value":0.5,"min":0,"max":1,"step":0.1,"component":"Duotone"}],"canUpload":true}</script>
 <script type="module" src="app.js"></script>
 </body></html>

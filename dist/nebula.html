@@ -35,14 +35,21 @@
   <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
     <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">8 params</p></div>
     <div class="panel-body">
+      <div class="panel-actions">
+        <button id="share" class="btn sm" type="button" title="Copy a link that restores your current settings">Copy link</button>
+        
+      </div>
       <form id="controls" class="controls" onsubmit="return false"></form>
       <details class="code" open>
         <summary>Code</summary>
+        <div class="tabs" role="tablist" aria-label="Framework">
+          <button class="tab" role="tab" type="button" data-fw="react" aria-selected="false">React</button><button class="tab" role="tab" type="button" data-fw="vue" aria-selected="false">Vue</button><button class="tab" role="tab" type="button" data-fw="svelte" aria-selected="false">Svelte</button><button class="tab" role="tab" type="button" data-fw="solid" aria-selected="false">Solid</button><button class="tab" role="tab" type="button" data-fw="js" aria-selected="false">JS</button>
+        </div>
         <pre id="code" aria-label="Generated code"></pre>
       </details>
     </div>
   </aside>
 </div>
-<script>window.__PAGE__={"slug":"nebula","title":"Nebula","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#02030a","colorB":"#05061a","angle":90}},{"type":"Nebula","id":"fx","props":{"scale":1.8}}],"controls":[{"id":"fx","prop":"coreColor","kind":"color","label":"Core Color","value":"#ffd9b0","component":"Nebula"},{"id":"fx","prop":"gasColor","kind":"color","label":"Gas Color","value":"#ff5e7a","component":"Nebula"},{"id":"fx","prop":"veilColor","kind":"color","label":"Veil Color","value":"#3a5bdb","component":"Nebula"},{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1.8,"min":0.1,"max":3,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"density","kind":"range","label":"Density","value":1,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"dust","kind":"range","label":"Dust","value":0.55,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"stars","kind":"range","label":"Stars","value":0.07,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":0.3,"min":0,"max":4,"step":0.01,"component":"Nebula"}]}</script>
+<script>window.__PAGE__={"slug":"nebula","title":"Nebula","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#02030a","colorB":"#05061a","angle":90}},{"type":"Nebula","id":"fx","props":{"scale":1.8}}],"controls":[{"id":"fx","prop":"coreColor","kind":"color","label":"Core Color","value":"#ffd9b0","component":"Nebula"},{"id":"fx","prop":"gasColor","kind":"color","label":"Gas Color","value":"#ff5e7a","component":"Nebula"},{"id":"fx","prop":"veilColor","kind":"color","label":"Veil Color","value":"#3a5bdb","component":"Nebula"},{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1.8,"min":0.1,"max":3,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"density","kind":"range","label":"Density","value":1,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"dust","kind":"range","label":"Dust","value":0.55,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"stars","kind":"range","label":"Stars","value":0.07,"min":0,"max":1,"step":0.01,"component":"Nebula"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":0.3,"min":0,"max":4,"step":0.01,"component":"Nebula"}],"canUpload":false}</script>
 <script type="module" src="app.js"></script>
 </body></html>

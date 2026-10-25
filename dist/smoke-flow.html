@@ -35,14 +35,21 @@
   <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
     <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">9 params</p></div>
     <div class="panel-body">
+      <div class="panel-actions">
+        <button id="share" class="btn sm" type="button" title="Copy a link that restores your current settings">Copy link</button>
+        
+      </div>
       <form id="controls" class="controls" onsubmit="return false"></form>
       <details class="code" open>
         <summary>Code</summary>
+        <div class="tabs" role="tablist" aria-label="Framework">
+          <button class="tab" role="tab" type="button" data-fw="react" aria-selected="false">React</button><button class="tab" role="tab" type="button" data-fw="vue" aria-selected="false">Vue</button><button class="tab" role="tab" type="button" data-fw="svelte" aria-selected="false">Svelte</button><button class="tab" role="tab" type="button" data-fw="solid" aria-selected="false">Solid</button><button class="tab" role="tab" type="button" data-fw="js" aria-selected="false">JS</button>
+        </div>
         <pre id="code" aria-label="Generated code"></pre>
       </details>
     </div>
   </aside>
 </div>
-<script>window.__PAGE__={"slug":"smoke-flow","title":"Smoke Flow","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"SmokeFlow","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Fresh Color","value":"#e29c8b","component":"SmokeFlow"},{"id":"fx","prop":"colorB","kind":"color","label":"Aged Color","value":"#d517f9","component":"SmokeFlow"},{"id":"fx","prop":"intensity","kind":"range","label":"Intensity","value":1,"min":0.1,"max":2,"step":0.05,"component":"SmokeFlow"},{"id":"fx","prop":"emitRadius","kind":"range","label":"Puff Size","value":0.07,"min":0.01,"max":0.3,"step":0.01,"component":"SmokeFlow"},{"id":"fx","prop":"momentum","kind":"range","label":"Momentum","value":20,"min":0,"max":50,"step":1,"component":"SmokeFlow"},{"id":"fx","prop":"dissipation","kind":"range","label":"Dissipation","value":0.5,"min":0.05,"max":3,"step":0.05,"component":"SmokeFlow"},{"id":"fx","prop":"detail","kind":"range","label":"Swirl Detail","value":10,"min":0,"max":60,"step":1,"component":"SmokeFlow"},{"id":"fx","prop":"gravity","kind":"range","label":"Gravity","value":2,"min":-5,"max":5,"step":0.05,"component":"SmokeFlow"},{"id":"fx","prop":"colorDecay","kind":"range","label":"Color Decay","value":0.5,"min":0,"max":3,"step":0.1,"component":"SmokeFlow"}]}</script>
+<script>window.__PAGE__={"slug":"smoke-flow","title":"Smoke Flow","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"SmokeFlow","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Fresh Color","value":"#e29c8b","component":"SmokeFlow"},{"id":"fx","prop":"colorB","kind":"color","label":"Aged Color","value":"#d517f9","component":"SmokeFlow"},{"id":"fx","prop":"intensity","kind":"range","label":"Intensity","value":1,"min":0.1,"max":2,"step":0.05,"component":"SmokeFlow"},{"id":"fx","prop":"emitRadius","kind":"range","label":"Puff Size","value":0.07,"min":0.01,"max":0.3,"step":0.01,"component":"SmokeFlow"},{"id":"fx","prop":"momentum","kind":"range","label":"Momentum","value":20,"min":0,"max":50,"step":1,"component":"SmokeFlow"},{"id":"fx","prop":"dissipation","kind":"range","label":"Dissipation","value":0.5,"min":0.05,"max":3,"step":0.05,"component":"SmokeFlow"},{"id":"fx","prop":"detail","kind":"range","label":"Swirl Detail","value":10,"min":0,"max":60,"step":1,"component":"SmokeFlow"},{"id":"fx","prop":"gravity","kind":"range","label":"Gravity","value":2,"min":-5,"max":5,"step":0.05,"component":"SmokeFlow"},{"id":"fx","prop":"colorDecay","kind":"range","label":"Color Decay","value":0.5,"min":0,"max":3,"step":0.1,"component":"SmokeFlow"}],"canUpload":false}</script>
 <script type="module" src="app.js"></script>
 </body></html>

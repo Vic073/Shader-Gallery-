@@ -35,14 +35,21 @@
   <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
     <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">10 params</p></div>
     <div class="panel-body">
+      <div class="panel-actions">
+        <button id="share" class="btn sm" type="button" title="Copy a link that restores your current settings">Copy link</button>
+        
+      </div>
       <form id="controls" class="controls" onsubmit="return false"></form>
       <details class="code" open>
         <summary>Code</summary>
+        <div class="tabs" role="tablist" aria-label="Framework">
+          <button class="tab" role="tab" type="button" data-fw="react" aria-selected="false">React</button><button class="tab" role="tab" type="button" data-fw="vue" aria-selected="false">Vue</button><button class="tab" role="tab" type="button" data-fw="svelte" aria-selected="false">Svelte</button><button class="tab" role="tab" type="button" data-fw="solid" aria-selected="false">Solid</button><button class="tab" role="tab" type="button" data-fw="js" aria-selected="false">JS</button>
+        </div>
         <pre id="code" aria-label="Generated code"></pre>
       </details>
     </div>
   </aside>
 </div>
-<script>window.__PAGE__={"slug":"irradiance","title":"Irradiance","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"Irradiance","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1,"min":0.1,"max":3,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"Irradiance"},{"id":"fx","prop":"lightHeight","kind":"range","label":"Light Height","value":0.5,"min":0.05,"max":3,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"lightRange","kind":"range","label":"Range","value":1.2,"min":0.1,"max":4,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"reach","kind":"range","label":"Reach","value":3,"min":0.5,"max":8,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"core","kind":"range","label":"Core","value":1,"min":0,"max":2,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"wrap","kind":"range","label":"Wrap","value":0.1,"min":0,"max":1,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"shadows","kind":"toggle","label":"Shadows","value":true,"component":"Irradiance"},{"id":"fx","prop":"shadowSoftness","kind":"range","label":"Shadow Softness","value":0.15,"min":0,"max":1,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"bodyColor","kind":"color","label":"Body Color","value":"#000000","component":"Irradiance"}]}</script>
+<script>window.__PAGE__={"slug":"irradiance","title":"Irradiance","components":[{"type":"LinearGradient","id":"bg","props":{"colorA":"#05060f","colorB":"#14163a","angle":90}},{"type":"Irradiance","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"scale","kind":"range","label":"Scale","value":1,"min":0.1,"max":3,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"rotation","kind":"range","label":"Rotation","value":0,"min":0,"max":360,"step":1,"component":"Irradiance"},{"id":"fx","prop":"lightHeight","kind":"range","label":"Light Height","value":0.5,"min":0.05,"max":3,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"lightRange","kind":"range","label":"Range","value":1.2,"min":0.1,"max":4,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"reach","kind":"range","label":"Reach","value":3,"min":0.5,"max":8,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"core","kind":"range","label":"Core","value":1,"min":0,"max":2,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"wrap","kind":"range","label":"Wrap","value":0.1,"min":0,"max":1,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"shadows","kind":"toggle","label":"Shadows","value":true,"component":"Irradiance"},{"id":"fx","prop":"shadowSoftness","kind":"range","label":"Shadow Softness","value":0.15,"min":0,"max":1,"step":0.01,"component":"Irradiance"},{"id":"fx","prop":"bodyColor","kind":"color","label":"Body Color","value":"#000000","component":"Irradiance"}],"canUpload":false}</script>
 <script type="module" src="app.js"></script>
 </body></html>

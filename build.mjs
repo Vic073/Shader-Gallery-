@@ -168,7 +168,9 @@ const idx = `${head('Shader Gallery', `${pages.length} live WebGPU shader effect
 await writeFile(OUT + 'index.html', idx)
 
 for (const [i, p] of pages.entries()) {
-  const data = { slug: p.slug, title: p.title, components: p.components, controls: p.resolved }
+  let canUpload = false
+  walk(p.components, (c) => { if (c.id === 'src') canUpload = true })
+  const data = { slug: p.slug, title: p.title, components: p.components, controls: p.resolved, canUpload }
   const prev = pages[(i - 1 + pages.length) % pages.length], next = pages[(i + 1) % pages.length]
   const html = `${head(p.title + ' · Shader Gallery', p.blurb)}
 <body class="detail">
@@ -199,9 +201,18 @@ for (const [i, p] of pages.entries()) {
   <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
     <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">${p.resolved.length} params</p></div>
     <div class="panel-body">
+      <div class="panel-actions">
+        <button id="share" class="btn sm" type="button" title="Copy a link that restores your current settings">Copy link</button>
+        ${canUpload ? `<button id="imgbtn" class="btn sm" type="button" title="Run this effect on your own picture">Use your image</button>
+        <button id="imgreset" class="btn sm" type="button" hidden>Demo source</button>
+        <input id="imgfile" type="file" accept="image/*" hidden>` : ''}
+      </div>
       <form id="controls" class="controls" onsubmit="return false">${p.resolved.length ? '' : '<p class="nocontrols">This effect has no adjustable parameters. It applies as-is.</p>'}</form>
       <details class="code" open>
         <summary>Code</summary>
+        <div class="tabs" role="tablist" aria-label="Framework">
+          ${['react:React', 'vue:Vue', 'svelte:Svelte', 'solid:Solid', 'js:JS'].map((t) => { const [k, l] = t.split(':'); return `<button class="tab" role="tab" type="button" data-fw="${k}" aria-selected="false">${l}</button>` }).join('')}
+        </div>
         <pre id="code" aria-label="Generated code"></pre>
       </details>
     </div>

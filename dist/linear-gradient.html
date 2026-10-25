@@ -35,14 +35,21 @@
   <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
     <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">4 params</p></div>
     <div class="panel-body">
+      <div class="panel-actions">
+        <button id="share" class="btn sm" type="button" title="Copy a link that restores your current settings">Copy link</button>
+        
+      </div>
       <form id="controls" class="controls" onsubmit="return false"></form>
       <details class="code" open>
         <summary>Code</summary>
+        <div class="tabs" role="tablist" aria-label="Framework">
+          <button class="tab" role="tab" type="button" data-fw="react" aria-selected="false">React</button><button class="tab" role="tab" type="button" data-fw="vue" aria-selected="false">Vue</button><button class="tab" role="tab" type="button" data-fw="svelte" aria-selected="false">Svelte</button><button class="tab" role="tab" type="button" data-fw="solid" aria-selected="false">Solid</button><button class="tab" role="tab" type="button" data-fw="js" aria-selected="false">JS</button>
+        </div>
         <pre id="code" aria-label="Generated code"></pre>
       </details>
     </div>
   </aside>
 </div>
-<script>window.__PAGE__={"slug":"linear-gradient","title":"Linear Gradient","components":[{"type":"LinearGradient","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#1aff00","component":"LinearGradient"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#0000ff","component":"LinearGradient"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":0,"max":360,"step":1,"component":"LinearGradient"},{"id":"fx","prop":"edges","kind":"select","label":"Edges","value":"stretch","options":[{"label":"Stretch","value":"stretch"},{"label":"Transparent","value":"transparent"},{"label":"Mirror","value":"mirror"},{"label":"Wrap","value":"wrap"}],"component":"LinearGradient"}]}</script>
+<script>window.__PAGE__={"slug":"linear-gradient","title":"Linear Gradient","components":[{"type":"LinearGradient","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#1aff00","component":"LinearGradient"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#0000ff","component":"LinearGradient"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":0,"max":360,"step":1,"component":"LinearGradient"},{"id":"fx","prop":"edges","kind":"select","label":"Edges","value":"stretch","options":[{"label":"Stretch","value":"stretch"},{"label":"Transparent","value":"transparent"},{"label":"Mirror","value":"mirror"},{"label":"Wrap","value":"wrap"}],"component":"LinearGradient"}],"canUpload":false}</script>
 <script type="module" src="app.js"></script>
 </body></html>

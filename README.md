@@ -19,3 +19,10 @@ list the props you want as controls, and the sliders/pickers are generated from 
 
 ## Glass off switch
 Append `?glass=off` to any URL, or use the "Glass" button on an effect page. The CSS glass stays; only the GL refraction is removed.
+
+## Features
+- Live controls per effect, generated from the package's own prop metadata
+- Code tabs for React, Vue, Svelte, Solid and JS, produced by the package's codegen
+- Shareable links: your tweaks are stored in the URL (`#v=...`); "Copy link" copies it. Links are validated and clamped on load
+- "Use your image": run wrapper effects (blurs, distortions, stylize, transitions...) on your own picture. It stays in your browser, and never goes into the link
+- Live previews on the cards in view (capped pool), `?glass=off` to disable GL glass

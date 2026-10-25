@@ -35,14 +35,21 @@
   <aside class="panel glass reveal" style="--i:3" aria-label="Controls">
     <div class="panel-head"><p class="eyebrow"><b>Controls</b></p><p class="eyebrow">8 params</p></div>
     <div class="panel-body">
+      <div class="panel-actions">
+        <button id="share" class="btn sm" type="button" title="Copy a link that restores your current settings">Copy link</button>
+        
+      </div>
       <form id="controls" class="controls" onsubmit="return false"></form>
       <details class="code" open>
         <summary>Code</summary>
+        <div class="tabs" role="tablist" aria-label="Framework">
+          <button class="tab" role="tab" type="button" data-fw="react" aria-selected="false">React</button><button class="tab" role="tab" type="button" data-fw="vue" aria-selected="false">Vue</button><button class="tab" role="tab" type="button" data-fw="svelte" aria-selected="false">Svelte</button><button class="tab" role="tab" type="button" data-fw="solid" aria-selected="false">Solid</button><button class="tab" role="tab" type="button" data-fw="js" aria-selected="false">JS</button>
+        </div>
         <pre id="code" aria-label="Generated code"></pre>
       </details>
     </div>
   </aside>
 </div>
-<script>window.__PAGE__={"slug":"chevron","title":"Chevron","components":[{"type":"Chevron","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#000000","component":"Chevron"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#ffffff","component":"Chevron"},{"id":"fx","prop":"count","kind":"range","label":"Count","value":5,"min":1,"max":30,"step":1,"component":"Chevron"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":-180,"max":180,"step":1,"component":"Chevron"},{"id":"fx","prop":"balance","kind":"range","label":"Balance","value":0.5,"min":0,"max":1,"step":0.01,"component":"Chevron"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0,"min":0,"max":1,"step":0.01,"component":"Chevron"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":0,"min":-2,"max":2,"step":0.1,"component":"Chevron"},{"id":"fx","prop":"offset","kind":"range","label":"Offset","value":0,"min":0,"max":1,"step":0.01,"component":"Chevron"}]}</script>
+<script>window.__PAGE__={"slug":"chevron","title":"Chevron","components":[{"type":"Chevron","id":"fx","props":{}}],"controls":[{"id":"fx","prop":"colorA","kind":"color","label":"Color A","value":"#000000","component":"Chevron"},{"id":"fx","prop":"colorB","kind":"color","label":"Color B","value":"#ffffff","component":"Chevron"},{"id":"fx","prop":"count","kind":"range","label":"Count","value":5,"min":1,"max":30,"step":1,"component":"Chevron"},{"id":"fx","prop":"angle","kind":"range","label":"Angle","value":0,"min":-180,"max":180,"step":1,"component":"Chevron"},{"id":"fx","prop":"balance","kind":"range","label":"Balance","value":0.5,"min":0,"max":1,"step":0.01,"component":"Chevron"},{"id":"fx","prop":"softness","kind":"range","label":"Softness","value":0,"min":0,"max":1,"step":0.01,"component":"Chevron"},{"id":"fx","prop":"speed","kind":"range","label":"Speed","value":0,"min":-2,"max":2,"step":0.1,"component":"Chevron"},{"id":"fx","prop":"offset","kind":"range","label":"Offset","value":0,"min":0,"max":1,"step":0.01,"component":"Chevron"}],"canUpload":false}</script>
 <script type="module" src="app.js"></script>
 </body></html>
